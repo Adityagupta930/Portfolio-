@@ -231,7 +231,157 @@ document.querySelectorAll('.project-card, .timeline-card, .contact-card, .expert
     fadeObserver.observe(el);
 });
 
-// ===== CONTACT FORM =====
+// ===== TOAST =====
+function showToast(msg, type = 'info', icon = 'fa-info-circle') {
+    const container = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `<i class="fas ${icon}"></i> ${msg}`;
+    container.appendChild(toast);
+    setTimeout(() => {
+        toast.classList.add('fadeout');
+        setTimeout(() => toast.remove(), 300);
+    }, 3500);
+}
+
+// ===== SPOTLIGHT SEARCH =====
+const spotlightData = [
+    { icon: 'fa-home',        title: 'Home',          desc: 'Back to top',                    href: '#home' },
+    { icon: 'fa-user',        title: 'About Me',      desc: 'Know more about Aditya',         href: '#about' },
+    { icon: 'fa-code',        title: 'Skills',        desc: 'LangChain, PyTorch, AWS...',     href: '#skills' },
+    { icon: 'fa-rocket',      title: 'Projects',      desc: 'MetaConverse, BERT Filter...',   href: '#projects' },
+    { icon: 'fa-briefcase',   title: 'Experience',    desc: 'Metapercept, Vision Infotech',   href: '#experience' },
+    { icon: 'fa-envelope',    title: 'Contact',       desc: 'Get in touch with Aditya',       href: '#contact' },
+    { icon: 'fa-brain',       title: 'LLMs & RAG',    desc: 'AI Skill',                       href: '#skills' },
+    { icon: 'fa-robot',       title: 'Agentic AI',    desc: 'AI Skill',                       href: '#skills' },
+    { icon: 'fa-comments',    title: 'MetaConverse',  desc: 'Multi-domain AI Chatbot',        href: '#projects' },
+    { icon: 'fa-filter',      title: 'Comment Shield','desc': 'Abusive Language Filter',      href: '#projects' },
+    { icon: 'fa-download',    title: 'Download Resume','desc': 'Get Aditya\'s CV',            href: 'Aditya_Gupta_.Resume....pdf' },
+    { icon: 'fa-linkedin',    title: 'LinkedIn',      desc: 'Connect on LinkedIn',            href: 'https://www.linkedin.com/in/aditya-gupta-943b52243/' },
+    { icon: 'fa-github',      title: 'GitHub',        desc: 'View GitHub profile',            href: 'https://github.com/Adityagupta930/' },
+];
+
+const overlay = document.getElementById('spotlightOverlay');
+const spotInput = document.getElementById('spotlightInput');
+const spotResults = document.getElementById('spotlightResults');
+let selectedIdx = -1;
+
+function openSpotlight() {
+    overlay.classList.add('active');
+    spotInput.value = '';
+    spotInput.focus();
+    renderSpotlight('');
+    showToast('Spotlight Search opened', 'info', 'fa-search');
+}
+
+function closeSpotlight() {
+    overlay.classList.remove('active');
+    selectedIdx = -1;
+}
+
+function renderSpotlight(query) {
+    const filtered = query
+        ? spotlightData.filter(d => d.title.toLowerCase().includes(query.toLowerCase()) || d.desc.toLowerCase().includes(query.toLowerCase()))
+        : spotlightData;
+    spotResults.innerHTML = filtered.map((d, i) => `
+        <a class="spotlight-item ${i === selectedIdx ? 'selected' : ''}" href="${d.href}" data-idx="${i}">
+            <div class="spotlight-item-icon"><i class="fas ${d.icon}"></i></div>
+            <div class="spotlight-item-text"><h4>${d.title}</h4><p>${d.desc}</p></div>
+        </a>`).join('');
+    spotResults.querySelectorAll('.spotlight-item').forEach(item => {
+        item.addEventListener('click', () => closeSpotlight());
+    });
+}
+
+document.getElementById('searchBtn').addEventListener('click', openSpotlight);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeSpotlight(); });
+spotInput.addEventListener('input', e => { selectedIdx = -1; renderSpotlight(e.target.value); });
+
+document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSpotlight(); }
+    if (e.key === 'Escape') closeSpotlight();
+    if (overlay.classList.contains('active')) {
+        const items = spotResults.querySelectorAll('.spotlight-item');
+        if (e.key === 'ArrowDown') { selectedIdx = Math.min(selectedIdx + 1, items.length - 1); renderSpotlight(spotInput.value); }
+        if (e.key === 'ArrowUp') { selectedIdx = Math.max(selectedIdx - 1, 0); renderSpotlight(spotInput.value); }
+        if (e.key === 'Enter' && selectedIdx >= 0) { items[selectedIdx]?.click(); closeSpotlight(); }
+    }
+});
+
+// ===== AI CHAT WIDGET =====
+const chatToggle = document.getElementById('chatToggle');
+const chatBox = document.getElementById('chatBox');
+const chatClose = document.getElementById('chatClose');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+const chatMessages = document.getElementById('chatMessages');
+const chatIcon = document.getElementById('chatIcon');
+const chatBadge = document.querySelector('.chat-badge');
+
+const aiReplies = {
+    'skill': `Aditya specializes in:\n🤖 LLMs, RAG, Agentic AI\n⚡ LangChain, LlamaIndex, LangGraph\n🧠 PyTorch, TensorFlow, Scikit-learn\n☁️ AWS, Docker, MLflow`,
+    'project': `Featured projects:\n💬 MetaConverse Bot — Multi-domain RAG chatbot\n🔍 Comment Shield — BERT-based abuse filter (91% acc)\n📄 AI Mock Paper Generator — 500+ students/day\n🖼️ Stable Diffusion Research — 20-40% FID improvement`,
+    'experience': `Work experience:\n🏢 AI Developer @ Metapercept Technology (Jun 2025–Present)\n💻 AI Intern @ Vision Infotech (Dec 2024–May 2025)\n🔬 Research Intern @ Univ. of West London (Dec 2023–Apr 2024)`,
+    'contact': `You can reach Aditya at:\n📧 adityagupta021103@gmail.com\n📞 +91 93017 76202\n💼 linkedin.com/in/aditya-gupta-943b52243\n🐙 github.com/Adityagupta930`,
+    'education': `🎓 B.Tech CSE @ Parul University, Gujarat\nCGPA: 8.46/10 | Sep 2021 – Apr 2025`,
+    'certif': `Certifications:\n🏆 Microsoft Azure AI Fundamentals\n📜 NPTEL: Intro to ML & Software Engineering\n🧠 DeepLearning.AI ML Specialization\n🐍 Udemy: Complete Python Developer`,
+    'default': `I can answer about Aditya's skills, projects, experience, education, or contact info. What would you like to know? 😊`
+};
+
+function getAIReply(msg) {
+    const m = msg.toLowerCase();
+    if (m.includes('skill') || m.includes('tech') || m.includes('langchain') || m.includes('python')) return aiReplies.skill;
+    if (m.includes('project') || m.includes('work') || m.includes('built') || m.includes('chatbot')) return aiReplies.project;
+    if (m.includes('experience') || m.includes('job') || m.includes('intern') || m.includes('company')) return aiReplies.experience;
+    if (m.includes('contact') || m.includes('email') || m.includes('reach') || m.includes('hire')) return aiReplies.contact;
+    if (m.includes('educat') || m.includes('degree') || m.includes('university') || m.includes('cgpa')) return aiReplies.education;
+    if (m.includes('certif') || m.includes('azure') || m.includes('nptel') || m.includes('coursera')) return aiReplies.certif;
+    return aiReplies.default;
+}
+
+function addMsg(text, type) {
+    const div = document.createElement('div');
+    div.className = `chat-msg ${type}`;
+    div.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function sendChat(msg) {
+    if (!msg.trim()) return;
+    document.querySelector('.chat-suggestions')?.remove();
+    addMsg(msg, 'user');
+    chatInput.value = '';
+    setTimeout(() => {
+        addMsg(getAIReply(msg), 'bot');
+    }, 600);
+}
+
+chatToggle.addEventListener('click', () => {
+    chatBox.classList.toggle('open');
+    chatBadge.style.display = 'none';
+    chatIcon.className = chatBox.classList.contains('open') ? 'fas fa-times' : 'fas fa-robot';
+});
+
+chatClose.addEventListener('click', () => {
+    chatBox.classList.remove('open');
+    chatIcon.className = 'fas fa-robot';
+});
+
+chatSend.addEventListener('click', () => sendChat(chatInput.value));
+chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendChat(chatInput.value); });
+
+document.querySelectorAll('.suggestion-btn').forEach(btn => {
+    btn.addEventListener('click', () => sendChat(btn.textContent));
+});
+
+// Show welcome toast on load
+window.addEventListener('load', () => {
+    setTimeout(() => showToast('👋 Welcome! Press Ctrl+K to search', 'info', 'fa-keyboard'), 2000);
+    setTimeout(() => showToast('💬 Chat with Aditya\'s AI assistant →', 'success', 'fa-robot'), 4500);
+});
+
+// Toast on contact form submit
 document.getElementById('contactForm').addEventListener('submit', e => {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
@@ -240,6 +390,7 @@ document.getElementById('contactForm').addEventListener('submit', e => {
     setTimeout(() => {
         btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
         btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        showToast('✅ Message sent successfully!', 'success', 'fa-check-circle');
         e.target.reset();
         setTimeout(() => {
             btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
