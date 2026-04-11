@@ -177,7 +177,7 @@ const fadeObserver = new IntersectionObserver(entries => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.project-card, .timeline-card, .contact-card, .skill-category, .badge').forEach(el => {
+document.querySelectorAll('.project-card, .timeline-card, .contact-card, .expertise-card, .cert-card, .badge').forEach(el => {
     el.classList.add('fade-up');
     fadeObserver.observe(el);
 });
