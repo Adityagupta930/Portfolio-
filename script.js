@@ -1,8 +1,24 @@
-// ===== CURSOR GLOW =====
+// ===== CURSOR GLOW + CUSTOM CURSOR =====
 const cursorGlow = document.getElementById('cursorGlow');
+const cursorDot = document.getElementById('cursorDot');
+
 document.addEventListener('mousemove', e => {
     cursorGlow.style.left = e.clientX + 'px';
     cursorGlow.style.top = e.clientY + 'px';
+    cursorDot.style.left = e.clientX + 'px';
+    cursorDot.style.top = e.clientY + 'px';
+});
+
+// Scale dot on hovering clickable elements
+document.querySelectorAll('a, button, .project-card, .cert-card, .expertise-card, .pill').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursorDot.style.transform = 'translate(-50%, -50%) scale(2.5)';
+        cursorDot.style.background = 'var(--accent)';
+    });
+    el.addEventListener('mouseleave', () => {
+        cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorDot.style.background = 'var(--primary2)';
+    });
 });
 
 // ===== 3D TILT ON PROJECT CARDS =====
