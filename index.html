@@ -10,15 +10,12 @@
 </head>
 <body>
 
-    <!-- Particle Canvas Background -->
     <canvas id="particles"></canvas>
 
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-bracket">&lt;</span>AG<span class="logo-bracket">/&gt;</span>
-            </div>
+            <div class="nav-logo"><span class="logo-bracket">&lt;</span>AG<span class="logo-bracket">/&gt;</span></div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -27,80 +24,62 @@
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="Aditya_Gupta_.Resume....pdf" download class="btn-resume">
-                <i class="fas fa-download"></i> Resume
-            </a>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
+            <a href="Aditya_Gupta_.Resume....pdf" download class="btn-resume"><i class="fas fa-download"></i> Resume</a>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="hero-content">
             <p class="hero-greeting">👋 Hello, World! I'm</p>
             <h1>Aditya <span class="gradient-text">Gupta</span></h1>
             <div class="typewriter-wrapper">
                 <span class="typewriter-prefix">I build </span>
-                <span class="typewriter" id="typewriter"></span>
-                <span class="cursor">|</span>
+                <span class="typewriter" id="typewriter"></span><span class="cursor">|</span>
             </div>
-            <p class="hero-desc">
-                Turning raw data into intelligent insights & building AI-powered applications
-                that solve real-world problems.
-            </p>
+            <p class="hero-desc">AI Developer & Data Scientist specializing in LLMs, RAG, Agentic AI, and GenAI systems. Turning complex data into intelligent, production-ready solutions.</p>
             <div class="hero-cta">
-                <a href="#projects" class="btn-primary-hero">
-                    <i class="fas fa-rocket"></i> View Projects
-                </a>
-                <a href="#contact" class="btn-ghost-hero">
-                    <i class="fas fa-paper-plane"></i> Hire Me
-                </a>
+                <a href="#projects" class="btn-primary-hero"><i class="fas fa-rocket"></i> View Projects</a>
+                <a href="#contact" class="btn-ghost-hero"><i class="fas fa-paper-plane"></i> Hire Me</a>
             </div>
             <div class="hero-stats">
-                <div class="hero-stat">
-                    <span class="stat-num" data-target="20">0</span><span>+</span>
-                    <p>Projects</p>
-                </div>
+                <div class="hero-stat"><span class="stat-num" data-target="2">0</span><span>+</span><p>Years Exp</p></div>
                 <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <span class="stat-num" data-target="3">0</span><span>+</span>
-                    <p>Years Exp</p>
-                </div>
+                <div class="hero-stat"><span class="stat-num" data-target="10">0</span><span>+</span><p>Projects</p></div>
                 <div class="hero-stat-divider"></div>
-                <div class="hero-stat">
-                    <span class="stat-num" data-target="10">0</span><span>+</span>
-                    <p>Technologies</p>
-                </div>
+                <div class="hero-stat"><span class="stat-num" data-target="20">0</span><span>+</span><p>Technologies</p></div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat"><span class="stat-num" data-target="3">0</span><span></span><p>Certifications</p></div>
             </div>
         </div>
         <div class="hero-visual">
             <div class="code-card glass">
                 <div class="code-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
                     <span class="code-title">aditya.py</span>
                 </div>
                 <pre class="code-body"><code><span class="c-keyword">class</span> <span class="c-class">AdityaGupta</span>:
-  <span class="c-keyword">def</span> <span class="c-fn">__init__</span>(self):
-    self.role = <span class="c-str">"AI Developer"</span>
-    self.skills = [
-      <span class="c-str">"Machine Learning"</span>,
-      <span class="c-str">"Deep Learning"</span>,
-      <span class="c-str">"Data Science"</span>,
-      <span class="c-str">"Python"</span>,
-    ]
-    self.passion = <span class="c-str">"Building AI"</span>
+  role = <span class="c-str">"AI Developer"</span>
+  location = <span class="c-str">"Pune, Maharashtra"</span>
+  education = <span class="c-str">"B.Tech CSE @ Parul Univ"</span>
+  cgpa = <span class="c-num">8.46</span>
+
+  skills = [
+    <span class="c-str">"LLMs & RAG"</span>,
+    <span class="c-str">"Agentic AI"</span>,
+    <span class="c-str">"LangChain / LlamaIndex"</span>,
+    <span class="c-str">"GenAI & Prompt Eng."</span>,
+    <span class="c-str">"AWS & MLOps"</span>,
+  ]
 
   <span class="c-keyword">def</span> <span class="c-fn">solve</span>(self, problem):
-    <span class="c-keyword">return</span> self.ai_magic(problem) <span class="c-comment">✨</span></code></pre>
+    <span class="c-keyword">return</span> self.build_ai(problem) <span class="c-comment">✨</span></code></pre>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="about section">
         <div class="container">
             <div class="section-header">
@@ -114,38 +93,29 @@
                         <div class="img-glow"></div>
                     </div>
                     <div class="about-badges">
-                        <div class="badge glass"><i class="fas fa-brain"></i> AI Engineer</div>
+                        <div class="badge glass"><i class="fas fa-brain"></i> AI Developer</div>
                         <div class="badge glass"><i class="fas fa-chart-bar"></i> Data Scientist</div>
-                        <div class="badge glass"><i class="fas fa-code"></i> Developer</div>
+                        <div class="badge glass"><i class="fas fa-robot"></i> GenAI Engineer</div>
                     </div>
                 </div>
                 <div class="about-text">
-                    <p>I'm a passionate <strong>AI Developer & Data Scientist</strong> who loves building intelligent systems that make a real impact. With expertise in machine learning, deep learning, and full-stack development, I bridge the gap between data and actionable solutions.</p>
-                    <p>My work spans from training neural networks and building NLP pipelines to deploying production-ready ML models and creating data-driven web applications.</p>
+                    <p>I'm a passionate <strong>AI Developer & Data Scientist</strong> currently working at <strong>Metapercept Technology</strong>, building production-grade AI systems using LLMs, RAG, and Agentic AI frameworks.</p>
+                    <p>I specialize in designing intelligent retrieval systems, fine-tuning LLMs, and deploying scalable AI pipelines on AWS. My work spans from NLP and GenAI to MLOps and cloud infrastructure.</p>
+                    <p>Previously interned at <strong>Vision Infotech</strong> and <strong>University of West London</strong> (Research), where I built AI-powered products used by 500+ students daily and published research on Stable Diffusion.</p>
                     <div class="about-info-grid">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>India</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>aditya.gupta@email.com</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>B.Tech Computer Science</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-circle status-dot"></i>
-                            <span class="available">Available for work</span>
-                        </div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Pune, Maharashtra, India</span></div>
+                        <div class="info-item"><i class="fas fa-envelope"></i><span>adityagupta021103@gmail.com</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i><span>+91 93017 76202</span></div>
+                        <div class="info-item"><i class="fas fa-graduation-cap"></i><span>B.Tech CSE — Parul University (CGPA: 8.46)</span></div>
+                        <div class="info-item"><i class="fas fa-calendar"></i><span>Graduating: Apr 2025</span></div>
+                        <div class="info-item"><i class="fas fa-circle status-dot"></i><span class="available">Open to Opportunities</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills" class="skills section">
         <div class="container">
             <div class="section-header">
@@ -154,80 +124,94 @@
             </div>
             <div class="skills-tabs">
                 <button class="tab-btn active" data-tab="ai">🤖 AI / ML</button>
-                <button class="tab-btn" data-tab="data">📊 Data Science</button>
-                <button class="tab-btn" data-tab="dev">💻 Development</button>
-                <button class="tab-btn" data-tab="tools">🛠️ Tools</button>
+                <button class="tab-btn" data-tab="frameworks">⚙️ Frameworks</button>
+                <button class="tab-btn" data-tab="data">📊 Data & Languages</button>
+                <button class="tab-btn" data-tab="cloud">☁️ Cloud & MLOps</button>
+                <button class="tab-btn" data-tab="vector">🗄️ Vector DBs</button>
             </div>
             <div class="skills-content">
                 <div class="tab-content active" id="tab-ai">
                     <div class="skill-pills">
+                        <span class="pill">Machine Learning</span>
+                        <span class="pill">Deep Learning</span>
+                        <span class="pill">NLP</span>
+                        <span class="pill">GenAI</span>
+                        <span class="pill">LLM Fine-tuning</span>
+                        <span class="pill">RAG</span>
+                        <span class="pill">Agentic AI</span>
+                        <span class="pill">Prompt Engineering</span>
+                        <span class="pill">MCP</span>
+                        <span class="pill">LLM Evaluation</span>
+                        <span class="pill">Stable Diffusion</span>
+                        <span class="pill">Computer Vision</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-frameworks">
+                    <div class="skill-pills">
+                        <span class="pill">LangChain</span>
+                        <span class="pill">LlamaIndex</span>
+                        <span class="pill">LangGraph</span>
+                        <span class="pill">CrewAI</span>
+                        <span class="pill">OpenAI Swarm</span>
+                        <span class="pill">LangSmith</span>
                         <span class="pill">TensorFlow</span>
                         <span class="pill">PyTorch</span>
-                        <span class="pill">Scikit-learn</span>
                         <span class="pill">Keras</span>
-                        <span class="pill">OpenCV</span>
+                        <span class="pill">Scikit-learn</span>
                         <span class="pill">Hugging Face</span>
-                        <span class="pill">LangChain</span>
-                        <span class="pill">NLP</span>
-                        <span class="pill">Computer Vision</span>
-                        <span class="pill">Reinforcement Learning</span>
-                        <span class="pill">LLMs</span>
-                        <span class="pill">RAG</span>
+                        <span class="pill">FastAPI</span>
+                        <span class="pill">Flask</span>
+                        <span class="pill">Streamlit</span>
                     </div>
                 </div>
                 <div class="tab-content" id="tab-data">
                     <div class="skill-pills">
                         <span class="pill">Python</span>
+                        <span class="pill">SQL</span>
+                        <span class="pill">HTML</span>
+                        <span class="pill">CSS3</span>
+                        <span class="pill">Shell</span>
                         <span class="pill">Pandas</span>
                         <span class="pill">NumPy</span>
                         <span class="pill">Matplotlib</span>
                         <span class="pill">Seaborn</span>
-                        <span class="pill">Plotly</span>
-                        <span class="pill">SQL</span>
-                        <span class="pill">Power BI</span>
-                        <span class="pill">Tableau</span>
-                        <span class="pill">Jupyter</span>
-                        <span class="pill">Apache Spark</span>
-                        <span class="pill">Statistics</span>
-                    </div>
-                </div>
-                <div class="tab-content" id="tab-dev">
-                    <div class="skill-pills">
-                        <span class="pill">Python</span>
-                        <span class="pill">JavaScript</span>
-                        <span class="pill">React</span>
-                        <span class="pill">Node.js</span>
-                        <span class="pill">FastAPI</span>
-                        <span class="pill">Flask</span>
-                        <span class="pill">Django</span>
-                        <span class="pill">REST APIs</span>
-                        <span class="pill">MongoDB</span>
+                        <span class="pill">Pydantic</span>
                         <span class="pill">PostgreSQL</span>
-                        <span class="pill">HTML/CSS</span>
-                        <span class="pill">TypeScript</span>
+                        <span class="pill">ARIMA</span>
                     </div>
                 </div>
-                <div class="tab-content" id="tab-tools">
+                <div class="tab-content" id="tab-cloud">
                     <div class="skill-pills">
-                        <span class="pill">Git & GitHub</span>
+                        <span class="pill">AWS SQS</span>
+                        <span class="pill">AWS S3</span>
+                        <span class="pill">AWS Lambda</span>
+                        <span class="pill">AWS AI Services</span>
+                        <span class="pill">OpenSearch</span>
                         <span class="pill">Docker</span>
-                        <span class="pill">AWS</span>
-                        <span class="pill">Google Cloud</span>
-                        <span class="pill">MLflow</span>
+                        <span class="pill">Git & GitHub</span>
+                        <span class="pill">GitLab</span>
+                        <span class="pill">Jenkins</span>
+                        <span class="pill">Terraform</span>
+                        <span class="pill">GitHub Actions</span>
                         <span class="pill">DVC</span>
-                        <span class="pill">Linux</span>
-                        <span class="pill">VS Code</span>
-                        <span class="pill">Postman</span>
-                        <span class="pill">Figma</span>
-                        <span class="pill">Kubernetes</span>
-                        <span class="pill">CI/CD</span>
+                        <span class="pill">MLflow</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-vector">
+                    <div class="skill-pills">
+                        <span class="pill">Pinecone</span>
+                        <span class="pill">ChromaDB</span>
+                        <span class="pill">Weaviate</span>
+                        <span class="pill">OpenSearch</span>
+                        <span class="pill">AWS OpenSearch Service</span>
+                        <span class="pill">FAISS</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects" class="projects section">
         <div class="container">
             <div class="section-header">
@@ -236,94 +220,97 @@
             </div>
             <div class="projects-grid">
 
-                <div class="project-card glass">
+                <div class="project-card glass featured">
+                    <div class="featured-badge">⭐ Featured</div>
                     <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-brain"></i></div>
+                        <div class="project-icon"><i class="fas fa-comments"></i></div>
                         <div class="project-links-top">
-                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/Adityagupta930/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/Adityagupta930/" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
-                    <h3>AI Chatbot with RAG</h3>
-                    <p>Built an intelligent chatbot using LangChain, OpenAI GPT, and vector databases for context-aware responses on custom documents.</p>
+                    <h3>MetaConverse Bot</h3>
+                    <p>Multi-Domain AI Chatbot using LangChain & RAG architecture. Integrated ChromaDB for knowledge retrieval with sub-2-second latency across 1,000+ knowledge base entries.</p>
+                    <div class="project-meta"><i class="fas fa-calendar"></i> Sep 2024 – Oct 2024</div>
                     <div class="project-tags">
-                        <span>LangChain</span><span>OpenAI</span><span>FAISS</span><span>Python</span>
+                        <span>LangChain</span><span>ChromaDB</span><span>OpenAI API</span><span>FastAPI</span><span>Streamlit</span>
                     </div>
                 </div>
 
                 <div class="project-card glass featured">
                     <div class="featured-badge">⭐ Featured</div>
                     <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="project-icon"><i class="fas fa-filter"></i></div>
                         <div class="project-links-top">
-                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/KDGehlot2003/commentsheild.ai" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/KDGehlot2003/commentsheild.ai" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
-                    <h3>Stock Price Predictor</h3>
-                    <p>Deep learning model using LSTM networks to predict stock prices with 87% accuracy, deployed as a real-time web dashboard.</p>
+                    <h3>Real-Time Abusive Language Filter</h3>
+                    <p>Platform connecting to Instagram accounts to auto-detect & remove abusive comments in real-time. Fine-tuned BERT on custom Hinglish + English dataset achieving <strong>91%+ accuracy</strong>.</p>
+                    <div class="project-meta"><i class="fas fa-calendar"></i> Aug 2024 – Sep 2024</div>
                     <div class="project-tags">
-                        <span>LSTM</span><span>TensorFlow</span><span>Plotly</span><span>FastAPI</span>
+                        <span>BERT</span><span>Hugging Face</span><span>FastAPI</span><span>Instagram API</span><span>PostgreSQL</span>
                     </div>
                 </div>
 
                 <div class="project-card glass">
                     <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-eye"></i></div>
+                        <div class="project-icon"><i class="fas fa-brain"></i></div>
                         <div class="project-links-top">
-                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/Adityagupta930/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3>Object Detection System</h3>
-                    <p>Real-time object detection using YOLOv8 with custom training on domain-specific datasets, achieving 94% mAP score.</p>
+                    <h3>metrAI — Hybrid RAG Platform</h3>
+                    <p>AI-driven platform using Hybrid RAG (Vector DB + Knowledge Graph) enabling intelligent retrieval across 1,000+ documents, reducing query latency by ~35%.</p>
+                    <div class="project-meta"><i class="fas fa-briefcase"></i> @ Metapercept Technology</div>
                     <div class="project-tags">
-                        <span>YOLOv8</span><span>OpenCV</span><span>PyTorch</span><span>Flask</span>
+                        <span>RAG</span><span>Knowledge Graph</span><span>AWS OpenSearch</span><span>LangChain</span>
                     </div>
                 </div>
 
                 <div class="project-card glass">
                     <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-comments"></i></div>
+                        <div class="project-icon"><i class="fas fa-file-alt"></i></div>
                         <div class="project-links-top">
-                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/Adityagupta930/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3>Sentiment Analysis API</h3>
-                    <p>NLP pipeline for multi-class sentiment analysis on social media data using BERT fine-tuning with 92% accuracy.</p>
+                    <h3>AI Mock Paper Generator</h3>
+                    <p>RAG-based system generating curriculum-aligned question papers for 500+ NEET & JEE students daily. Reduced paper delivery time from 2 hours to under 30 seconds.</p>
+                    <div class="project-meta"><i class="fas fa-briefcase"></i> @ Vision Infotech</div>
                     <div class="project-tags">
-                        <span>BERT</span><span>HuggingFace</span><span>FastAPI</span><span>Docker</span>
+                        <span>RAG</span><span>ARIMA</span><span>FastAPI</span><span>Python</span>
                     </div>
                 </div>
 
                 <div class="project-card glass">
                     <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-database"></i></div>
+                        <div class="project-icon"><i class="fas fa-image"></i></div>
                         <div class="project-links-top">
-                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/Adityagupta930/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3>Data Analytics Dashboard</h3>
-                    <p>Interactive business intelligence dashboard with real-time data visualization, KPI tracking, and automated reporting.</p>
+                    <h3>Stable Diffusion Research</h3>
+                    <p>Custom Stable Diffusion techniques for text-to-image generation achieving 20–40% improvement in FID score over baseline. Published research papers & technical reports.</p>
+                    <div class="project-meta"><i class="fas fa-university"></i> @ Univ. of West London</div>
                     <div class="project-tags">
-                        <span>Plotly</span><span>Dash</span><span>Pandas</span><span>PostgreSQL</span>
+                        <span>Stable Diffusion</span><span>PyTorch</span><span>Computer Vision</span><span>Research</span>
                     </div>
                 </div>
 
                 <div class="project-card glass">
                     <div class="project-top">
-                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                        <div class="project-icon"><i class="fas fa-cloud"></i></div>
                         <div class="project-links-top">
-                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/Adityagupta930/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <h3>ML Model Deployment Platform</h3>
-                    <p>End-to-end MLOps platform for training, versioning, and deploying machine learning models with automated CI/CD pipelines.</p>
+                    <h3>AWS SQS Async Pipeline</h3>
+                    <p>Asynchronous file processing & OpenSearch indexing pipeline improving document ingestion throughput by 2x and reducing processing bottlenecks at scale.</p>
+                    <div class="project-meta"><i class="fas fa-briefcase"></i> @ Metapercept Technology</div>
                     <div class="project-tags">
-                        <span>MLflow</span><span>Docker</span><span>AWS</span><span>FastAPI</span>
+                        <span>AWS SQS</span><span>OpenSearch</span><span>Lambda</span><span>Docker</span>
                     </div>
                 </div>
 
@@ -331,7 +318,7 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience -->
     <section id="experience" class="experience section">
         <div class="container">
             <div class="section-header">
@@ -339,106 +326,155 @@
                 <h2 class="section-title">Experience & Education</h2>
             </div>
             <div class="timeline">
+
                 <div class="timeline-item">
                     <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
                     <div class="timeline-card glass">
                         <div class="timeline-header">
                             <div>
-                                <h3>AI/ML Engineer</h3>
-                                <h4><i class="fas fa-building"></i> Tech Company</h4>
+                                <h3>AI Developer</h3>
+                                <h4><i class="fas fa-building"></i> Metapercept Technology</h4>
                             </div>
-                            <span class="timeline-date">2023 – Present</span>
+                            <span class="timeline-date">Jun 2025 – Present</span>
                         </div>
                         <ul>
-                            <li>Developed and deployed ML models improving prediction accuracy by 35%</li>
-                            <li>Built NLP pipelines processing 1M+ documents daily</li>
-                            <li>Led a team of 4 engineers on AI product development</li>
+                            <li>Engineered metrAI using Hybrid RAG (Vector DB + Knowledge Graph) across 1,000+ documents — reducing query latency by ~35%</li>
+                            <li>Built AWS SQS-based async pipeline for file processing & OpenSearch indexing — improving ingestion throughput by 2x</li>
+                            <li>Implemented prompt engineering strategies & LLM evaluation frameworks for production workloads</li>
                         </ul>
-                        <div class="timeline-tags">
-                            <span>Python</span><span>TensorFlow</span><span>AWS</span>
-                        </div>
+                        <div class="timeline-tags"><span>LangChain</span><span>RAG</span><span>AWS SQS</span><span>OpenSearch</span><span>LLM Eval</span></div>
                     </div>
                 </div>
+
                 <div class="timeline-item">
                     <div class="timeline-dot"><i class="fas fa-laptop-code"></i></div>
                     <div class="timeline-card glass">
                         <div class="timeline-header">
                             <div>
-                                <h3>Data Science Intern</h3>
-                                <h4><i class="fas fa-building"></i> Analytics Startup</h4>
+                                <h3>AI Intern</h3>
+                                <h4><i class="fas fa-building"></i> Vision Infotech</h4>
                             </div>
-                            <span class="timeline-date">2022 – 2023</span>
+                            <span class="timeline-date">Dec 2024 – May 2025</span>
                         </div>
                         <ul>
-                            <li>Built predictive models for customer churn analysis</li>
-                            <li>Created interactive dashboards using Plotly & Dash</li>
-                            <li>Automated data pipelines reducing manual work by 60%</li>
+                            <li>Developed AI-powered mock paper generation system using RAG for 500+ NEET & JEE students daily</li>
+                            <li>Conducted multi-year trend analysis using ARIMA — improving paper relevance by ~30%</li>
+                            <li>Deployed FastAPI REST endpoints — reducing paper delivery time from 2 hours to under 30 seconds</li>
                         </ul>
-                        <div class="timeline-tags">
-                            <span>Pandas</span><span>Scikit-learn</span><span>Plotly</span>
-                        </div>
+                        <div class="timeline-tags"><span>RAG</span><span>ARIMA</span><span>FastAPI</span><span>Python</span></div>
                     </div>
                 </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-flask"></i></div>
+                    <div class="timeline-card glass">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Research Intern</h3>
+                                <h4><i class="fas fa-university"></i> University of West London</h4>
+                            </div>
+                            <span class="timeline-date">Dec 2023 – Apr 2024</span>
+                        </div>
+                        <ul>
+                            <li>Implemented custom Stable Diffusion for text-to-image generation — 20–40% improvement in FID score</li>
+                            <li>Contributed to research papers & technical reports on methodology and ablation study results</li>
+                        </ul>
+                        <div class="timeline-tags"><span>Stable Diffusion</span><span>PyTorch</span><span>Research</span></div>
+                    </div>
+                </div>
+
                 <div class="timeline-item">
                     <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
                     <div class="timeline-card glass">
                         <div class="timeline-header">
                             <div>
-                                <h3>B.Tech – Computer Science</h3>
-                                <h4><i class="fas fa-university"></i> University Name</h4>
+                                <h3>B.Tech — Computer Science & Engineering</h3>
+                                <h4><i class="fas fa-university"></i> Parul University, Gujarat</h4>
                             </div>
-                            <span class="timeline-date">2019 – 2023</span>
+                            <span class="timeline-date">Sep 2021 – Apr 2025</span>
                         </div>
                         <ul>
-                            <li>Specialized in AI, Machine Learning & Data Structures</li>
-                            <li>Final year project: Deep Learning for Medical Image Analysis</li>
-                            <li>Won 2 national-level hackathons</li>
+                            <li>CGPA: 8.46 / 10 — Specialized in AI & Machine Learning</li>
+                            <li>Final year project: AI-powered intelligent systems</li>
+                            <li>Active participant in hackathons and coding competitions</li>
                         </ul>
-                        <div class="timeline-tags">
-                            <span>CGPA: 8.5</span><span>AI Specialization</span>
-                        </div>
+                        <div class="timeline-tags"><span>CGPA: 8.46</span><span>AI Specialization</span><span>CSE</span></div>
                     </div>
+                </div>
+
+            </div>
+
+            <!-- Certifications -->
+            <div class="certs-section">
+                <h3 class="certs-title">🏆 Certifications</h3>
+                <div class="certs-grid">
+                    <a href="https://learn.microsoft.com/en-us/users/adityagupta-8039/?tab=credentials-tab" target="_blank" class="cert-card glass">
+                        <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
+                        <div>
+                            <h4>Azure AI Fundamentals</h4>
+                            <p>Microsoft Certified</p>
+                            <span>Jul 2024</span>
+                        </div>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1TmjKrlZBRFbZRQ3a1-tAAnkf4r__2j1p/view" target="_blank" class="cert-card glass">
+                        <div class="cert-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h4>Introduction to Machine Learning</h4>
+                            <p>NPTEL</p>
+                            <span>Jun 2024</span>
+                        </div>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1n6iGOIn-Ei3DfgRuZpYpWny6SC5o6Ctw/view" target="_blank" class="cert-card glass">
+                        <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <h4>Machine Learning Specialization</h4>
+                            <p>DeepLearning.AI / Coursera</p>
+                            <span>Sep 2023</span>
+                        </div>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1LAsH3yMut8mZ0tVPFff2GxTnYLM4ZKfY/view" target="_blank" class="cert-card glass">
+                        <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
+                        <div>
+                            <h4>NLP Solution using Azure AI Language</h4>
+                            <p>Microsoft Certified</p>
+                            <span>Feb 2023</span>
+                        </div>
+                        <i class="fas fa-external-link-alt cert-link-icon"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact section">
         <div class="container">
             <div class="section-header">
                 <p class="section-tag">// get in touch</p>
                 <h2 class="section-title">Let's Work Together</h2>
-                <p class="section-sub">Have a project in mind? Let's build something amazing with AI.</p>
+                <p class="section-sub">Have an AI project in mind? Let's build something amazing.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-card glass">
                         <i class="fas fa-envelope"></i>
-                        <div>
-                            <p>Email</p>
-                            <a href="mailto:aditya.gupta@email.com">aditya.gupta@email.com</a>
-                        </div>
+                        <div><p>Email</p><a href="mailto:adityagupta021103@gmail.com">adityagupta021103@gmail.com</a></div>
                     </div>
                     <div class="contact-card glass">
                         <i class="fas fa-phone"></i>
-                        <div>
-                            <p>Phone</p>
-                            <a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a>
-                        </div>
+                        <div><p>Phone</p><a href="tel:+919301776202">+91 93017 76202</a></div>
                     </div>
                     <div class="contact-card glass">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <p>Location</p>
-                            <span>India 🇮🇳</span>
-                        </div>
+                        <div><p>Location</p><span>Pune, Maharashtra, India 🇮🇳</span></div>
                     </div>
                     <div class="social-row">
-                        <a href="#" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-btn" title="Kaggle"><i class="fab fa-kaggle"></i></a>
-                        <a href="#" class="social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/aditya-gupta-943b52243/" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Adityagupta930/" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:adityagupta021103@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <form class="contact-form glass" id="contactForm">
@@ -460,9 +496,7 @@
                         <label>Message</label>
                         <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
+                    <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
                 </form>
             </div>
         </div>
@@ -472,11 +506,14 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-bracket">&lt;</span>AG<span class="logo-bracket">/&gt;</span>
+                <div class="footer-logo"><span class="logo-bracket">&lt;</span>AG<span class="logo-bracket">/&gt;</span></div>
+                <p>Built with ❤️ by <strong>Aditya Gupta</strong> &nbsp;|&nbsp; AI Developer & Data Scientist</p>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/aditya-gupta-943b52243/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Adityagupta930/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:adityagupta021103@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
-                <p>Built with ❤️ by Aditya Gupta &nbsp;|&nbsp; AI Developer & Data Scientist</p>
-                <p class="footer-copy">&copy; 2024 All rights reserved.</p>
+                <p class="footer-copy">&copy; 2025 Aditya Gupta. All rights reserved.</p>
             </div>
         </div>
     </footer>

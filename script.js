@@ -102,12 +102,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // ===== TYPEWRITER =====
 const words = [
-    'AI Solutions 🤖',
-    'ML Models 🧠',
-    'Data Pipelines 📊',
-    'Neural Networks ⚡',
-    'NLP Systems 💬',
-    'Smart Apps 🚀'
+    'LLM Applications 🤖',
+    'RAG Systems 🧠',
+    'Agentic AI 🕵️',
+    'GenAI Products ✨',
+    'NLP Pipelines 💬',
+    'AI at Scale 🚀'
 ];
 let wordIndex = 0, charIndex = 0, isDeleting = false;
 const typeEl = document.getElementById('typewriter');
