@@ -62,15 +62,21 @@ function animateParticles() {
 }
 animateParticles();
 
-// ===== NAVBAR =====
-const navbar = document.getElementById('navbar');
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
+// ===== SCROLL PROGRESS + BACK TO TOP =====
+const scrollProgress = document.getElementById('scrollProgress');
+const backToTop = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    scrollProgress.style.width = (window.scrollY / total * 100) + '%';
+    backToTop.classList.toggle('visible', window.scrollY > 400);
     navbar.classList.toggle('scrolled', window.scrollY > 50);
     updateActiveNav();
 });
+
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ===== NAVBAR =====
 
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
