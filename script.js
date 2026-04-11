@@ -1,3 +1,113 @@
+// ===== TYPING SOUND =====
+const AudioCtx = window.AudioContext || window.webkitAudioContext;
+let audioCtx;
+function playKeySound() {
+    try {
+        if (!audioCtx) audioCtx = new AudioCtx();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.frequency.setValueAtTime(800 + Math.random() * 400, audioCtx.currentTime);
+        osc.type = 'square';
+        gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.05);
+    } catch(e) {}
+}
+document.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('keydown', playKeySound);
+});
+
+// ===== KONAMI CODE EASTER EGG =====
+const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+let konamiIdx = 0;
+const easterEgg = document.getElementById('easterEgg');
+const easterClose = document.getElementById('easterClose');
+
+document.addEventListener('keydown', e => {
+    if (e.key === konamiCode[konamiIdx]) {
+        konamiIdx++;
+        if (konamiIdx === konamiCode.length) {
+            konamiIdx = 0;
+            easterEgg.classList.add('active');
+            launchConfetti();
+            launchConfetti();
+            showToast('🎮 Konami Code Activated!', 'success', 'fa-gamepad');
+        }
+    } else { konamiIdx = 0; }
+});
+easterClose.addEventListener('click', () => easterEgg.classList.remove('active'));
+easterEgg.addEventListener('click', e => { if (e.target === easterEgg) easterEgg.classList.remove('active'); });
+
+// ===== MATRIX RAIN =====
+const matrixCanvas = document.getElementById('matrixCanvas');
+const mCtx = matrixCanvas.getContext('2d');
+matrixCanvas.width = window.innerWidth;
+matrixCanvas.height = window.innerHeight;
+window.addEventListener('resize', () => { matrixCanvas.width = window.innerWidth; matrixCanvas.height = window.innerHeight; });
+
+const matrixChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()アイウエオカキクケコ';
+const fontSize = 14;
+let matrixCols = Math.floor(matrixCanvas.width / fontSize);
+let matrixDrops = Array(matrixCols).fill(1);
+let matrixActive = false;
+
+function drawMatrix() {
+    if (!matrixActive) return;
+    mCtx.fillStyle = 'rgba(5,11,24,0.05)';
+    mCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+    mCtx.fillStyle = '#a855f7';
+    mCtx.font = fontSize + 'px Fira Code';
+    matrixDrops.forEach((y, i) => {
+        const char = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        mCtx.fillStyle = Math.random() > 0.95 ? '#06b6d4' : '#7c3aed';
+        mCtx.fillText(char, i * fontSize, y * fontSize);
+        if (y * fontSize > matrixCanvas.height && Math.random() > 0.975) matrixDrops[i] = 0;
+        matrixDrops[i]++;
+    });
+    requestAnimationFrame(drawMatrix);
+}
+
+// Activate matrix on hero section hover
+const heroSection = document.getElementById('home');
+heroSection.addEventListener('mouseenter', () => {
+    if (!matrixActive) {
+        matrixActive = true;
+        matrixCanvas.classList.add('active');
+        drawMatrix();
+    }
+});
+heroSection.addEventListener('mouseleave', () => {
+    matrixActive = false;
+    matrixCanvas.classList.remove('active');
+    mCtx.clearRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+});
+
+// ===== VIBE WIDGET =====
+const vibeTexts = [
+    'Coding & Building AI...',
+    'Training Neural Networks 🧠',
+    'Debugging at 2AM 🕶️',
+    'Drinking Coffee ☕',
+    'Reading AI Papers 📚',
+    'Building RAG Systems 🔗',
+    'Prompt Engineering ✨',
+    'Deploying to AWS ☁️',
+    'Fine-tuning LLMs 🤖',
+    'In the Flow State 🚀',
+];
+let vibeIdx = 0;
+const vibeTrackEl = document.getElementById('vibeTrack');
+setInterval(() => {
+    vibeIdx = (vibeIdx + 1) % vibeTexts.length;
+    vibeTrackEl.style.opacity = '0';
+    setTimeout(() => {
+        vibeTrackEl.textContent = vibeTexts[vibeIdx];
+        vibeTrackEl.style.opacity = '1';
+    }, 300);
+}, 3000);
+vibeTrackEl.style.transition = 'opacity 0.3s ease';
+
 // ===== HIRE ME MODAL =====
 const hireModal = document.getElementById('hireModal');
 const hireMeBtn = document.getElementById('hireMeBtn');

@@ -740,6 +740,121 @@ body:hover .cursor-dot { opacity: 1; }
 
 .marquee-section:hover .marquee-content { animation-play-state: paused; }
 
+/* ===== EASTER EGG ===== */
+.easter-egg-overlay {
+    position: fixed; inset: 0; z-index: 99999;
+    background: rgba(0,0,0,0.9); backdrop-filter: blur(20px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.easter-egg-overlay.active { opacity: 1; pointer-events: all; }
+
+.easter-egg-box {
+    text-align: center; padding: 48px 40px;
+    border-radius: 24px; max-width: 440px; width: 90%;
+    border-color: rgba(124,58,237,0.5) !important;
+    box-shadow: 0 0 100px rgba(124,58,237,0.4);
+    animation: easterIn 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes easterIn {
+    from { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.easter-egg-emoji {
+    font-size: 4rem; margin-bottom: 16px;
+    animation: easterBounce 1s ease infinite alternate;
+}
+@keyframes easterBounce {
+    from { transform: translateY(0) rotate(-5deg); }
+    to { transform: translateY(-10px) rotate(5deg); }
+}
+
+.easter-egg-box h2 {
+    font-size: 1.6rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--primary2), var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 8px;
+}
+.easter-egg-box > p { color: var(--accent); font-weight: 600; margin-bottom: 24px; }
+
+.easter-egg-msg {
+    background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.2);
+    border-radius: 12px; padding: 16px 20px; margin-bottom: 24px;
+}
+.easter-egg-msg p { color: var(--text2); font-style: italic; font-size: 0.95rem; line-height: 1.6; }
+.easter-sig { color: var(--primary2) !important; font-style: normal !important; font-weight: 600; margin-top: 8px !important; font-size: 0.85rem !important; }
+
+.easter-stats {
+    display: flex; justify-content: center; gap: 32px; margin-bottom: 28px;
+}
+.easter-stats div span { font-size: 2rem; display: block; margin-bottom: 4px; }
+.easter-stats div p { font-size: 0.78rem; color: var(--text3); font-weight: 600; }
+
+.easter-close {
+    padding: 12px 28px; border-radius: 10px; border: none;
+    background: linear-gradient(135deg, var(--primary), var(--primary2));
+    color: white; font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--glow);
+}
+.easter-close:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--glow); }
+
+/* ===== MATRIX CANVAS ===== */
+#matrixCanvas {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
+    opacity: 0; transition: opacity 1s ease;
+}
+#matrixCanvas.active { opacity: 0.07; }
+
+/* ===== VIBE WIDGET ===== */
+.vibe-widget {
+    position: fixed; bottom: 32px; left: 32px;
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 18px; border-radius: 50px;
+    z-index: 998; cursor: default;
+    border-color: rgba(16,185,129,0.3) !important;
+    transition: all 0.3s ease;
+    animation: slideInLeft 0.5s ease 3s both;
+}
+.vibe-widget:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(16,185,129,0.2); }
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.vibe-icon {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: linear-gradient(135deg, #10b981, #059669);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 0.8rem; flex-shrink: 0;
+    animation: spinSlow 4s linear infinite;
+}
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+
+.vibe-label { font-size: 0.65rem; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.vibe-track { font-size: 0.8rem; color: var(--text); font-weight: 600; max-width: 160px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.vibe-bars {
+    display: flex; align-items: flex-end; gap: 2px; height: 20px;
+}
+.vibe-bars span {
+    width: 3px; background: var(--green); border-radius: 2px;
+    animation: vibeBar 0.8s ease-in-out infinite alternate;
+}
+.vibe-bars span:nth-child(1) { height: 8px; animation-delay: 0s; }
+.vibe-bars span:nth-child(2) { height: 16px; animation-delay: 0.2s; }
+.vibe-bars span:nth-child(3) { height: 12px; animation-delay: 0.4s; }
+.vibe-bars span:nth-child(4) { height: 6px; animation-delay: 0.6s; }
+@keyframes vibeBar {
+    from { transform: scaleY(0.4); }
+    to { transform: scaleY(1); }
+}
+
 /* ===== HIRE ME MODAL ===== */
 .modal-overlay {
     position: fixed; inset: 0; z-index: 9998;
