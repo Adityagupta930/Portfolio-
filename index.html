@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Gupta | AI Developer & Data Scientist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-bracket">&lt;</span>AG<span class="logo-bracket">/&gt;</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="Aditya_Gupta_.Resume....pdf" download class="btn-resume">
+                <i class="fas fa-download"></i> Resume
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">👋 Hello, World! I'm</p>
+            <h1>Aditya <span class="gradient-text">Gupta</span></h1>
+            <div class="typewriter-wrapper">
+                <span class="typewriter-prefix">I build </span>
+                <span class="typewriter" id="typewriter"></span>
+                <span class="cursor">|</span>
+            </div>
+            <p class="hero-desc">
+                Turning raw data into intelligent insights & building AI-powered applications
+                that solve real-world problems.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary-hero">
+                    <i class="fas fa-rocket"></i> View Projects
+                </a>
+                <a href="#contact" class="btn-ghost-hero">
+                    <i class="fas fa-paper-plane"></i> Hire Me
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-num" data-target="20">0</span><span>+</span>
+                    <p>Projects</p>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="stat-num" data-target="3">0</span><span>+</span>
+                    <p>Years Exp</p>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="stat-num" data-target="10">0</span><span>+</span>
+                    <p>Technologies</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-card glass">
+                <div class="code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="code-title">aditya.py</span>
+                </div>
+                <pre class="code-body"><code><span class="c-keyword">class</span> <span class="c-class">AdityaGupta</span>:
+  <span class="c-keyword">def</span> <span class="c-fn">__init__</span>(self):
+    self.role = <span class="c-str">"AI Developer"</span>
+    self.skills = [
+      <span class="c-str">"Machine Learning"</span>,
+      <span class="c-str">"Deep Learning"</span>,
+      <span class="c-str">"Data Science"</span>,
+      <span class="c-str">"Python"</span>,
+    ]
+    self.passion = <span class="c-str">"Building AI"</span>
+
+  <span class="c-keyword">def</span> <span class="c-fn">solve</span>(self, problem):
+    <span class="c-keyword">return</span> self.ai_magic(problem) <span class="c-comment">✨</span></code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">// about me</p>
+                <h2 class="section-title">Who Am I?</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-wrap">
+                    <div class="about-img-container">
+                        <img src="https://via.placeholder.com/400x400/0f172a/7c3aed?text=AG" alt="Aditya Gupta" class="about-img">
+                        <div class="img-glow"></div>
+                    </div>
+                    <div class="about-badges">
+                        <div class="badge glass"><i class="fas fa-brain"></i> AI Engineer</div>
+                        <div class="badge glass"><i class="fas fa-chart-bar"></i> Data Scientist</div>
+                        <div class="badge glass"><i class="fas fa-code"></i> Developer</div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>I'm a passionate <strong>AI Developer & Data Scientist</strong> who loves building intelligent systems that make a real impact. With expertise in machine learning, deep learning, and full-stack development, I bridge the gap between data and actionable solutions.</p>
+                    <p>My work spans from training neural networks and building NLP pipelines to deploying production-ready ML models and creating data-driven web applications.</p>
+                    <div class="about-info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>India</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>aditya.gupta@email.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>B.Tech Computer Science</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-circle status-dot"></i>
+                            <span class="available">Available for work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">// tech stack</p>
+                <h2 class="section-title">Skills & Tools</h2>
+            </div>
+            <div class="skills-tabs">
+                <button class="tab-btn active" data-tab="ai">🤖 AI / ML</button>
+                <button class="tab-btn" data-tab="data">📊 Data Science</button>
+                <button class="tab-btn" data-tab="dev">💻 Development</button>
+                <button class="tab-btn" data-tab="tools">🛠️ Tools</button>
+            </div>
+            <div class="skills-content">
+                <div class="tab-content active" id="tab-ai">
+                    <div class="skill-pills">
+                        <span class="pill">TensorFlow</span>
+                        <span class="pill">PyTorch</span>
+                        <span class="pill">Scikit-learn</span>
+                        <span class="pill">Keras</span>
+                        <span class="pill">OpenCV</span>
+                        <span class="pill">Hugging Face</span>
+                        <span class="pill">LangChain</span>
+                        <span class="pill">NLP</span>
+                        <span class="pill">Computer Vision</span>
+                        <span class="pill">Reinforcement Learning</span>
+                        <span class="pill">LLMs</span>
+                        <span class="pill">RAG</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-data">
+                    <div class="skill-pills">
+                        <span class="pill">Python</span>
+                        <span class="pill">Pandas</span>
+                        <span class="pill">NumPy</span>
+                        <span class="pill">Matplotlib</span>
+                        <span class="pill">Seaborn</span>
+                        <span class="pill">Plotly</span>
+                        <span class="pill">SQL</span>
+                        <span class="pill">Power BI</span>
+                        <span class="pill">Tableau</span>
+                        <span class="pill">Jupyter</span>
+                        <span class="pill">Apache Spark</span>
+                        <span class="pill">Statistics</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-dev">
+                    <div class="skill-pills">
+                        <span class="pill">Python</span>
+                        <span class="pill">JavaScript</span>
+                        <span class="pill">React</span>
+                        <span class="pill">Node.js</span>
+                        <span class="pill">FastAPI</span>
+                        <span class="pill">Flask</span>
+                        <span class="pill">Django</span>
+                        <span class="pill">REST APIs</span>
+                        <span class="pill">MongoDB</span>
+                        <span class="pill">PostgreSQL</span>
+                        <span class="pill">HTML/CSS</span>
+                        <span class="pill">TypeScript</span>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-tools">
+                    <div class="skill-pills">
+                        <span class="pill">Git & GitHub</span>
+                        <span class="pill">Docker</span>
+                        <span class="pill">AWS</span>
+                        <span class="pill">Google Cloud</span>
+                        <span class="pill">MLflow</span>
+                        <span class="pill">DVC</span>
+                        <span class="pill">Linux</span>
+                        <span class="pill">VS Code</span>
+                        <span class="pill">Postman</span>
+                        <span class="pill">Figma</span>
+                        <span class="pill">Kubernetes</span>
+                        <span class="pill">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">// my work</p>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+
+                <div class="project-card glass">
+                    <div class="project-top">
+                        <div class="project-icon"><i class="fas fa-brain"></i></div>
+                        <div class="project-links-top">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>AI Chatbot with RAG</h3>
+                    <p>Built an intelligent chatbot using LangChain, OpenAI GPT, and vector databases for context-aware responses on custom documents.</p>
+                    <div class="project-tags">
+                        <span>LangChain</span><span>OpenAI</span><span>FAISS</span><span>Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass featured">
+                    <div class="featured-badge">⭐ Featured</div>
+                    <div class="project-top">
+                        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="project-links-top">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Stock Price Predictor</h3>
+                    <p>Deep learning model using LSTM networks to predict stock prices with 87% accuracy, deployed as a real-time web dashboard.</p>
+                    <div class="project-tags">
+                        <span>LSTM</span><span>TensorFlow</span><span>Plotly</span><span>FastAPI</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass">
+                    <div class="project-top">
+                        <div class="project-icon"><i class="fas fa-eye"></i></div>
+                        <div class="project-links-top">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Object Detection System</h3>
+                    <p>Real-time object detection using YOLOv8 with custom training on domain-specific datasets, achieving 94% mAP score.</p>
+                    <div class="project-tags">
+                        <span>YOLOv8</span><span>OpenCV</span><span>PyTorch</span><span>Flask</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass">
+                    <div class="project-top">
+                        <div class="project-icon"><i class="fas fa-comments"></i></div>
+                        <div class="project-links-top">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Sentiment Analysis API</h3>
+                    <p>NLP pipeline for multi-class sentiment analysis on social media data using BERT fine-tuning with 92% accuracy.</p>
+                    <div class="project-tags">
+                        <span>BERT</span><span>HuggingFace</span><span>FastAPI</span><span>Docker</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass">
+                    <div class="project-top">
+                        <div class="project-icon"><i class="fas fa-database"></i></div>
+                        <div class="project-links-top">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>Data Analytics Dashboard</h3>
+                    <p>Interactive business intelligence dashboard with real-time data visualization, KPI tracking, and automated reporting.</p>
+                    <div class="project-tags">
+                        <span>Plotly</span><span>Dash</span><span>Pandas</span><span>PostgreSQL</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass">
+                    <div class="project-top">
+                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                        <div class="project-links-top">
+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3>ML Model Deployment Platform</h3>
+                    <p>End-to-end MLOps platform for training, versioning, and deploying machine learning models with automated CI/CD pipelines.</p>
+                    <div class="project-tags">
+                        <span>MLflow</span><span>Docker</span><span>AWS</span><span>FastAPI</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">// my journey</p>
+                <h2 class="section-title">Experience & Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
+                    <div class="timeline-card glass">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>AI/ML Engineer</h3>
+                                <h4><i class="fas fa-building"></i> Tech Company</h4>
+                            </div>
+                            <span class="timeline-date">2023 – Present</span>
+                        </div>
+                        <ul>
+                            <li>Developed and deployed ML models improving prediction accuracy by 35%</li>
+                            <li>Built NLP pipelines processing 1M+ documents daily</li>
+                            <li>Led a team of 4 engineers on AI product development</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Python</span><span>TensorFlow</span><span>AWS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-laptop-code"></i></div>
+                    <div class="timeline-card glass">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Data Science Intern</h3>
+                                <h4><i class="fas fa-building"></i> Analytics Startup</h4>
+                            </div>
+                            <span class="timeline-date">2022 – 2023</span>
+                        </div>
+                        <ul>
+                            <li>Built predictive models for customer churn analysis</li>
+                            <li>Created interactive dashboards using Plotly & Dash</li>
+                            <li>Automated data pipelines reducing manual work by 60%</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Pandas</span><span>Scikit-learn</span><span>Plotly</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="timeline-card glass">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>B.Tech – Computer Science</h3>
+                                <h4><i class="fas fa-university"></i> University Name</h4>
+                            </div>
+                            <span class="timeline-date">2019 – 2023</span>
+                        </div>
+                        <ul>
+                            <li>Specialized in AI, Machine Learning & Data Structures</li>
+                            <li>Final year project: Deep Learning for Medical Image Analysis</li>
+                            <li>Won 2 national-level hackathons</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>CGPA: 8.5</span><span>AI Specialization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag">// get in touch</p>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-sub">Have a project in mind? Let's build something amazing with AI.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card glass">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p>Email</p>
+                            <a href="mailto:aditya.gupta@email.com">aditya.gupta@email.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-card glass">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <p>Phone</p>
+                            <a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a>
+                        </div>
+                    </div>
+                    <div class="contact-card glass">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p>Location</p>
+                            <span>India 🇮🇳</span>
+                        </div>
+                    </div>
+                    <div class="social-row">
+                        <a href="#" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-btn" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+                        <a href="#" class="social-btn" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form glass" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" placeholder="Project Collaboration / Job Opportunity" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>AG<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p>Built with ❤️ by Aditya Gupta &nbsp;|&nbsp; AI Developer & Data Scientist</p>
+                <p class="footer-copy">&copy; 2024 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
