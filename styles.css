@@ -740,33 +740,6 @@ body:hover .cursor-dot { opacity: 1; }
 
 .marquee-section:hover .marquee-content { animation-play-state: paused; }
 
-/* ===== GITHUB STATS ===== */
-.github-section { background: var(--bg); }
-
-.github-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 20px;
-    max-width: 900px; margin: 0 auto;
-}
-
-.github-card-img {
-    width: 100%; border-radius: 16px;
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-}
-
-.github-card-img:hover {
-    transform: translateY(-4px);
-    border-color: rgba(124,58,237,0.4);
-    box-shadow: 0 8px 30px var(--glow);
-}
-
-.github-streak {
-    grid-column: 1 / -1;
-}
-
 /* ===== CURSOR GLOW ===== */
 .cursor-glow {
     width: 400px; height: 400px;
