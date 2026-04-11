@@ -62,7 +62,10 @@ function animateParticles() {
 }
 animateParticles();
 
-// ===== SCROLL PROGRESS + BACK TO TOP =====
+// ===== NAVBAR + SCROLL PROGRESS + BACK TO TOP =====
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 const scrollProgress = document.getElementById('scrollProgress');
 const backToTop = document.getElementById('backToTop');
 
@@ -75,8 +78,6 @@ window.addEventListener('scroll', () => {
 });
 
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-// ===== NAVBAR =====
 
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
