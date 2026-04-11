@@ -236,10 +236,12 @@ body {
 .about-img-container { position: relative; display: inline-block; }
 
 .about-img {
-    width: 100%; max-width: 320px;
+    width: 320px; height: 320px;
     border-radius: 20px;
     border: 2px solid var(--border);
     display: block;
+    object-fit: cover;
+    object-position: center top;
 }
 
 .img-glow {
