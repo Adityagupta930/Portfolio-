@@ -740,6 +740,128 @@ body:hover .cursor-dot { opacity: 1; }
 
 .marquee-section:hover .marquee-content { animation-play-state: paused; }
 
+/* ===== HIRE ME MODAL ===== */
+.modal-overlay {
+    position: fixed; inset: 0; z-index: 9998;
+    background: rgba(0,0,0,0.75); backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+
+.modal-box {
+    width: 100%; max-width: 500px; border-radius: 24px;
+    padding: 32px; position: relative;
+    border-color: rgba(124,58,237,0.4) !important;
+    box-shadow: 0 0 80px rgba(124,58,237,0.25);
+    animation: modalIn 0.3s ease;
+}
+@keyframes modalIn {
+    from { transform: scale(0.9) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute; top: 16px; right: 16px;
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text3); cursor: pointer; font-size: 0.9rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+}
+.modal-close:hover { color: var(--text); border-color: var(--primary2); }
+
+.modal-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 28px;
+}
+.modal-avatar img {
+    width: 56px; height: 56px; border-radius: 50%;
+    object-fit: cover; object-position: center top;
+    border: 2px solid var(--primary2);
+}
+.modal-header h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.modal-header p { font-size: 0.85rem; color: var(--green); margin-top: 2px; }
+
+.modal-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+
+.modal-option {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px; border-radius: 14px;
+    text-decoration: none; transition: all 0.2s ease;
+    cursor: pointer;
+}
+.modal-option:hover {
+    border-color: rgba(124,58,237,0.4) !important;
+    transform: translateX(4px);
+    background: rgba(124,58,237,0.1) !important;
+}
+.modal-option-icon {
+    width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1rem;
+}
+.modal-option h4 { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+.modal-option p { font-size: 0.78rem; color: var(--text3); }
+.modal-option .fa-arrow-right { margin-left: auto; color: var(--text3); font-size: 0.85rem; transition: transform 0.2s; }
+.modal-option:hover .fa-arrow-right { transform: translateX(4px); color: var(--primary2); }
+
+.modal-footer {
+    display: flex; align-items: center; gap: 8px;
+    justify-content: center;
+    font-size: 0.82rem; color: var(--text3);
+}
+
+/* ===== FLOATING AI ORB ===== */
+.ai-orb {
+    position: fixed; bottom: 160px; right: 36px;
+    width: 52px; height: 52px;
+    cursor: pointer; z-index: 997;
+    display: flex; align-items: center; justify-content: center;
+}
+.orb-core {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.2rem; position: relative; z-index: 2;
+    box-shadow: 0 0 25px rgba(6,182,212,0.5);
+    transition: transform 0.3s ease;
+    animation: orbFloat 3s ease-in-out infinite;
+}
+.ai-orb:hover .orb-core { transform: scale(1.1); }
+
+@keyframes orbFloat {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.orb-ring {
+    position: absolute; border-radius: 50%;
+    border: 1.5px solid rgba(6,182,212,0.3);
+    animation: orbRing 2s ease-out infinite;
+}
+.orb-ring:nth-child(1) { width: 70px; height: 70px; animation-delay: 0s; }
+.orb-ring:nth-child(2) { width: 90px; height: 90px; animation-delay: 0.5s; }
+
+@keyframes orbRing {
+    0% { transform: scale(0.8); opacity: 0.6; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+.orb-tooltip {
+    position: absolute; right: 64px; top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10,22,40,0.95);
+    border: 1px solid var(--border);
+    color: var(--text); font-size: 0.78rem; font-weight: 600;
+    padding: 6px 12px; border-radius: 8px; white-space: nowrap;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+.ai-orb:hover .orb-tooltip { opacity: 1; }
+
 /* ===== THEME TOGGLE ===== */
 .theme-toggle {
     width: 36px; height: 36px; border-radius: 8px;

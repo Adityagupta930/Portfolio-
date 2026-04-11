@@ -50,8 +50,8 @@
             </div>
             <p class="hero-desc">AI Developer & Data Scientist specializing in LLMs, RAG, Agentic AI, and GenAI systems. Turning complex data into intelligent, production-ready solutions.</p>
             <div class="hero-cta">
-                <a href="#projects" class="btn-primary-hero"><i class="fas fa-rocket"></i> View Projects</a>
-                <a href="#contact" class="btn-ghost-hero"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                <a href="#contact" class="btn-primary-hero"><i class="fas fa-rocket"></i> View Projects</a>
+                <button class="btn-ghost-hero" id="hireMeBtn"><i class="fas fa-paper-plane"></i> Hire Me</button>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat"><span class="stat-num" data-target="1">0</span><span>+</span><p>Years Exp</p></div>
@@ -590,6 +590,56 @@
             </div>
         </div>
     </footer>
+
+    <!-- Hire Me Modal -->
+    <div class="modal-overlay" id="hireModal">
+        <div class="modal-box glass">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <div class="modal-avatar">
+                    <img src="photo.jpg" alt="Aditya">
+                </div>
+                <div>
+                    <h3>Let's Build Something Amazing! 🚀</h3>
+                    <p>Available for AI/ML roles & freelance projects</p>
+                </div>
+            </div>
+            <div class="modal-options">
+                <a href="mailto:adityagupta021103@gmail.com?subject=Job Opportunity" class="modal-option glass">
+                    <div class="modal-option-icon"><i class="fas fa-briefcase"></i></div>
+                    <div><h4>Full-time Role</h4><p>AI Developer / ML Engineer</p></div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="mailto:adityagupta021103@gmail.com?subject=Freelance Project" class="modal-option glass">
+                    <div class="modal-option-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div><h4>Freelance Project</h4><p>RAG, LLM, AI Systems</p></div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="mailto:adityagupta021103@gmail.com?subject=Research Collaboration" class="modal-option glass">
+                    <div class="modal-option-icon"><i class="fas fa-flask"></i></div>
+                    <div><h4>Research Collaboration</h4><p>AI/ML Research Projects</p></div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/aditya-gupta-943b52243/" target="_blank" class="modal-option glass">
+                    <div class="modal-option-icon"><i class="fab fa-linkedin"></i></div>
+                    <div><h4>Connect on LinkedIn</h4><p>Let's network!</p></div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="modal-footer">
+                <span class="live-dot"></span>
+                <span>Usually responds within 24 hours</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating AI Orb -->
+    <div class="ai-orb" id="aiOrb">
+        <div class="orb-ring"></div>
+        <div class="orb-ring"></div>
+        <div class="orb-core"><i class="fas fa-brain"></i></div>
+        <div class="orb-tooltip">Ask AI Assistant</div>
+    </div>
 
     <!-- Spotlight Search -->
     <div class="spotlight-overlay" id="spotlightOverlay">
