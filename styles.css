@@ -680,6 +680,93 @@ body {
 .footer-content p { color: var(--text3); font-size: 0.9rem; margin-bottom: 4px; }
 .footer-copy { font-size: 0.8rem !important; }
 
+/* ===== CUSTOM CURSOR ===== */
+.cursor-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--primary2);
+    position: fixed; pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s ease;
+    box-shadow: 0 0 10px var(--primary2);
+}
+
+body:hover .cursor-dot { opacity: 1; }
+
+/* ===== HERO TAG ===== */
+.hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 18px; border-radius: 30px;
+    font-size: 0.85rem; font-weight: 600; color: var(--green);
+    border-color: rgba(16,185,129,0.3) !important;
+    background: rgba(16,185,129,0.08) !important;
+    margin-bottom: 20px;
+}
+
+.live-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    animation: pulse-dot 2s infinite;
+}
+
+/* ===== MARQUEE ===== */
+.marquee-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0; overflow: hidden;
+    position: relative; z-index: 1;
+}
+
+.marquee-track { overflow: hidden; }
+
+.marquee-content {
+    display: flex; gap: 40px; width: max-content;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-content span {
+    font-size: 0.9rem; font-weight: 600;
+    color: var(--text3); white-space: nowrap;
+    transition: color 0.2s;
+    font-family: 'Fira Code', monospace;
+}
+
+.marquee-content span:hover { color: var(--primary2); }
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-section:hover .marquee-content { animation-play-state: paused; }
+
+/* ===== GITHUB STATS ===== */
+.github-section { background: var(--bg); }
+
+.github-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    max-width: 900px; margin: 0 auto;
+}
+
+.github-card-img {
+    width: 100%; border-radius: 16px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.github-card-img:hover {
+    transform: translateY(-4px);
+    border-color: rgba(124,58,237,0.4);
+    box-shadow: 0 8px 30px var(--glow);
+}
+
+.github-streak {
+    grid-column: 1 / -1;
+}
+
 /* ===== CURSOR GLOW ===== */
 .cursor-glow {
     width: 400px; height: 400px;
