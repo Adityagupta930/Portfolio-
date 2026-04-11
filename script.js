@@ -39,6 +39,11 @@ document.addEventListener('keydown', e => {
 easterClose.addEventListener('click', () => easterEgg.classList.remove('active'));
 easterEgg.addEventListener('click', e => { if (e.target === easterEgg) easterEgg.classList.remove('active'); });
 
+// ===== NEON SECTION TITLES =====
+document.querySelectorAll('.section-title').forEach(el => {
+    el.setAttribute('data-text', el.textContent);
+});
+
 // ===== MATRIX RAIN =====
 const matrixCanvas = document.getElementById('matrixCanvas');
 const mCtx = matrixCanvas.getContext('2d');
