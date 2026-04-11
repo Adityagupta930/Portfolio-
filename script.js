@@ -1,3 +1,55 @@
+// ===== HIRE ME MODAL =====
+const hireModal = document.getElementById('hireModal');
+const hireMeBtn = document.getElementById('hireMeBtn');
+const modalClose = document.getElementById('modalClose');
+
+hireMeBtn.addEventListener('click', () => {
+    hireModal.classList.add('active');
+    showToast('👋 Let\'s connect!', 'success', 'fa-handshake');
+});
+modalClose.addEventListener('click', () => hireModal.classList.remove('active'));
+hireModal.addEventListener('click', e => { if (e.target === hireModal) hireModal.classList.remove('active'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') hireModal.classList.remove('active'); });
+
+// ===== CONFETTI =====
+function launchConfetti() {
+    const colors = ['#7c3aed','#a855f7','#06b6d4','#10b981','#f59e0b','#ef4444'];
+    for (let i = 0; i < 80; i++) {
+        const el = document.createElement('div');
+        el.style.cssText = `
+            position:fixed; width:${Math.random()*10+5}px; height:${Math.random()*10+5}px;
+            background:${colors[Math.floor(Math.random()*colors.length)]};
+            left:${Math.random()*100}vw; top:-20px;
+            border-radius:${Math.random()>0.5?'50%':'2px'};
+            z-index:99999; pointer-events:none;
+            animation: confettiFall ${Math.random()*2+1.5}s ease-in forwards;
+            animation-delay:${Math.random()*0.5}s;
+        `;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 3000);
+    }
+}
+
+const confettiStyle = document.createElement('style');
+confettiStyle.textContent = `
+@keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); opacity:1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity:0; }
+}`;
+document.head.appendChild(confettiStyle);
+
+// ===== FLOATING AI ORB =====
+const aiOrb = document.getElementById('aiOrb');
+aiOrb.addEventListener('click', () => {
+    const chatBox = document.getElementById('chatBox');
+    const chatBadge = document.querySelector('.chat-badge');
+    const chatIcon = document.getElementById('chatIcon');
+    chatBox.classList.add('open');
+    chatBadge.style.display = 'none';
+    chatIcon.className = 'fas fa-times';
+    showToast('🤖 AI Assistant opened!', 'info', 'fa-robot');
+});
+
 // ===== THEME TOGGLE =====
 const themeToggle = document.getElementById('themeToggle');
 themeToggle.addEventListener('click', () => {
@@ -400,6 +452,7 @@ document.getElementById('contactForm').addEventListener('submit', e => {
         btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
         btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
         showToast('✅ Message sent successfully!', 'success', 'fa-check-circle');
+        launchConfetti();
         e.target.reset();
         setTimeout(() => {
             btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
