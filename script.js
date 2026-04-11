@@ -1,3 +1,27 @@
+// ===== THEME TOGGLE =====
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    themeToggle.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+    showToast(isLight ? '☀️ Light mode on' : '🌙 Dark mode on', 'info', isLight ? 'fa-sun' : 'fa-moon');
+});
+
+// ===== SKILL BARS ANIMATION =====
+const barObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                bar.style.width = bar.dataset.width + '%';
+            });
+            barObserver.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.3 });
+
+const skillBarsEl = document.querySelector('.skill-bars');
+if (skillBarsEl) barObserver.observe(skillBarsEl);
+
 // ===== CURSOR GLOW + CUSTOM CURSOR =====
 const cursorGlow = document.getElementById('cursorGlow');
 const cursorDot = document.getElementById('cursorDot');
