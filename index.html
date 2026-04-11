@@ -32,6 +32,7 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="Aditya_Gupta_.Resume....pdf" download class="btn-resume"><i class="fas fa-download"></i> Resume</a>
+            <button class="search-btn" id="searchBtn" title="Search (Ctrl+K)"><i class="fas fa-search"></i><kbd>Ctrl K</kbd></button>
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
     </nav>
@@ -589,6 +590,59 @@
             </div>
         </div>
     </footer>
+
+    <!-- Spotlight Search -->
+    <div class="spotlight-overlay" id="spotlightOverlay">
+        <div class="spotlight-box glass">
+            <div class="spotlight-input-wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" id="spotlightInput" placeholder="Search sections, skills, projects..." autocomplete="off">
+                <kbd>ESC</kbd>
+            </div>
+            <div class="spotlight-results" id="spotlightResults"></div>
+            <div class="spotlight-footer">
+                <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+                <span><kbd>↵</kbd> select</span>
+                <span><kbd>ESC</kbd> close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-box glass" id="chatBox">
+            <div class="chat-header">
+                <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                <div>
+                    <h4>Aditya's AI Assistant</h4>
+                    <span class="chat-status"><span class="live-dot"></span> Online</span>
+                </div>
+                <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-msg bot">
+                    <p>👋 Hi! I'm Aditya's AI assistant. Ask me anything about his skills, projects, or experience!</p>
+                </div>
+                <div class="chat-suggestions">
+                    <button class="suggestion-btn">🧠 What are his skills?</button>
+                    <button class="suggestion-btn">💼 Work experience?</button>
+                    <button class="suggestion-btn">🚀 Featured projects?</button>
+                    <button class="suggestion-btn">📧 How to contact?</button>
+                </div>
+            </div>
+            <div class="chat-input-wrap">
+                <input type="text" id="chatInput" placeholder="Ask me anything...">
+                <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-toggle" id="chatToggle">
+            <i class="fas fa-robot" id="chatIcon"></i>
+            <span class="chat-badge">1</span>
+        </button>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
 
     <!-- Back to Top -->
     <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
