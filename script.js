@@ -1,3 +1,56 @@
+// ===== PAGE LOADER =====
+const loaderTexts = ['Initializing AI...', 'Loading LLMs...', 'Connecting RAG...', 'Building Portfolio...', 'Almost Ready...'];
+const loaderBar = document.getElementById('loaderBar');
+const loaderTextEl = document.getElementById('loaderText');
+const pageLoader = document.getElementById('pageLoader');
+let loaderProgress = 0;
+let loaderTxtIdx = 0;
+
+const loaderInterval = setInterval(() => {
+    loaderProgress += Math.random() * 18 + 8;
+    if (loaderProgress > 100) loaderProgress = 100;
+    loaderBar.style.width = loaderProgress + '%';
+    if (loaderTxtIdx < loaderTexts.length - 1 && loaderProgress > (loaderTxtIdx + 1) * 20) {
+        loaderTxtIdx++;
+        loaderTextEl.textContent = loaderTexts[loaderTxtIdx];
+    }
+    if (loaderProgress >= 100) {
+        clearInterval(loaderInterval);
+        setTimeout(() => pageLoader.classList.add('hidden'), 400);
+    }
+}, 200);
+
+// ===== TESTIMONIALS CAROUSEL =====
+const testiTrack = document.getElementById('testiTrack');
+const testiDots = document.getElementById('testiDots');
+const cards = testiTrack ? testiTrack.querySelectorAll('.testi-card') : [];
+let testiIdx = 0;
+let cardsVisible = window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
+
+if (cards.length) {
+    // Create dots
+    const totalSlides = cards.length - cardsVisible + 1;
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goToSlide(i));
+        testiDots.appendChild(dot);
+    }
+
+    function goToSlide(idx) {
+        testiIdx = Math.max(0, Math.min(idx, totalSlides - 1));
+        const cardW = cards[0].offsetWidth + 24;
+        testiTrack.style.transform = `translateX(-${testiIdx * cardW}px)`;
+        testiDots.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === testiIdx));
+    }
+
+    document.getElementById('testiNext').addEventListener('click', () => goToSlide(testiIdx + 1 >= totalSlides ? 0 : testiIdx + 1));
+    document.getElementById('testiPrev').addEventListener('click', () => goToSlide(testiIdx - 1 < 0 ? totalSlides - 1 : testiIdx - 1));
+
+    // Auto slide every 4s
+    setInterval(() => goToSlide(testiIdx + 1 >= totalSlides ? 0 : testiIdx + 1), 4000);
+}
+
 // ===== TYPING SOUND =====
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let audioCtx;
