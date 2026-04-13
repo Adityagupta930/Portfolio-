@@ -1469,3 +1469,189 @@ body.light .code-body { background: #1e1e3f; border-radius: 0 0 16px 16px; }
     .flip-front { position: relative; }
     .flip-back { display: none; }
 }
+
+/* ===== GLOBE ===== */
+.globe-wrap {
+    display: flex; flex-direction: column; align-items: center;
+    margin-bottom: 24px;
+}
+#globeCanvas {
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(124,58,237,0.3), 0 0 80px rgba(6,182,212,0.15);
+    background: radial-gradient(circle at 35% 35%, #1a1a4e, #050b18);
+}
+.globe-label {
+    margin-top: 12px; padding: 6px 16px; border-radius: 20px;
+    font-size: 0.82rem; font-weight: 600; color: var(--green);
+    display: flex; align-items: center; gap: 8px;
+    border-color: rgba(16,185,129,0.3) !important;
+    background: rgba(16,185,129,0.08) !important;
+}
+
+/* ===== ACCORDION TIMELINE ===== */
+.accordion-item .timeline-card { cursor: pointer; }
+
+.accordion-item .timeline-card ul,
+.accordion-item .timeline-card .timeline-tags {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+.accordion-item.open .timeline-card ul,
+.accordion-item.open .timeline-card .timeline-tags {
+    max-height: 300px; opacity: 1;
+}
+
+.accordion-item .timeline-header::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free'; font-weight: 900;
+    color: var(--text3); font-size: 0.8rem;
+    margin-left: auto; transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+.accordion-item.open .timeline-header::after {
+    transform: rotate(180deg);
+    color: var(--primary2);
+}
+
+.accordion-item .timeline-card:hover { border-color: rgba(124,58,237,0.3) !important; }
+.accordion-item.open .timeline-card { border-color: rgba(124,58,237,0.4) !important; }
+
+/* ===== TIMELINE LOCATION ===== */
+.timeline-location {
+    font-size: 0.78rem; color: var(--accent);
+    margin-top: 4px; display: flex; align-items: center; gap: 5px;
+}
+.timeline-location i { font-size: 0.7rem; }
+
+/* ===== ACCORDION TIMELINE FIX ===== */
+.accordion-item .timeline-card {
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.accordion-item .timeline-card ul {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-bottom: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease, margin-bottom 0.3s ease;
+}
+
+.accordion-item .timeline-card .timeline-tags {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+
+.accordion-item.open .timeline-card ul {
+    max-height: 400px;
+    opacity: 1;
+    margin-bottom: 16px;
+}
+
+.accordion-item.open .timeline-card .timeline-tags {
+    max-height: 100px;
+    opacity: 1;
+}
+
+.accordion-item .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.accordion-toggle-icon {
+    color: var(--text3);
+    font-size: 0.85rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: 8px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.accordion-item.open .accordion-toggle-icon {
+    transform: rotate(180deg);
+    color: var(--primary2);
+}
+
+.accordion-item.open .timeline-card {
+    border-color: rgba(124,58,237,0.4) !important;
+}
+
+/* ===== CLEAN ACCORDION ===== */
+.acc-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.acc-item.open { border-color: rgba(124,58,237,0.5); }
+
+.acc-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 20px; cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+.acc-header:hover { background: rgba(124,58,237,0.05); }
+
+.acc-dot {
+    width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 0.95rem;
+    box-shadow: 0 0 15px var(--glow);
+}
+
+.acc-title { flex: 1; }
+.acc-title h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.acc-title h4 { font-size: 0.8rem; color: var(--accent); font-weight: 500; }
+
+.acc-date {
+    font-size: 0.75rem; font-weight: 600; color: var(--primary2);
+    background: rgba(124,58,237,0.15);
+    border: 1px solid rgba(124,58,237,0.3);
+    padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+}
+
+.acc-arrow {
+    color: var(--text3); font-size: 0.85rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+}
+.acc-item.open .acc-arrow { transform: rotate(180deg); color: var(--primary2); }
+
+.acc-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    padding: 0 20px;
+}
+.acc-item.open .acc-body { max-height: 400px; padding: 0 20px 18px; }
+
+.acc-body ul { list-style: none; margin-bottom: 14px; }
+.acc-body ul li {
+    color: var(--text2); font-size: 0.88rem;
+    padding: 5px 0 5px 16px; position: relative; line-height: 1.5;
+}
+.acc-body ul li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+
+.acc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.acc-tags span {
+    padding: 3px 10px; border-radius: 20px;
+    background: rgba(6,182,212,0.1);
+    border: 1px solid rgba(6,182,212,0.3);
+    color: var(--accent); font-size: 0.75rem; font-weight: 600;
+}

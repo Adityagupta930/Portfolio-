@@ -39,6 +39,107 @@ document.addEventListener('keydown', e => {
 easterClose.addEventListener('click', () => easterEgg.classList.remove('active'));
 easterEgg.addEventListener('click', e => { if (e.target === easterEgg) easterEgg.classList.remove('active'); });
 
+// ===== 3D GLOBE =====
+const globeCanvas = document.getElementById('globeCanvas');
+if (globeCanvas) {
+    const gc = globeCanvas.getContext('2d');
+    const R = 140; const cx = 150; const cy = 150;
+    let angle = 0;
+    const dots = [];
+    // Generate random dots on sphere surface
+    for (let i = 0; i < 300; i++) {
+        const lat = (Math.random() - 0.5) * Math.PI;
+        const lon = Math.random() * 2 * Math.PI;
+        dots.push({ lat, lon });
+    }
+    // India marker
+    const india = { lat: 20.5 * Math.PI / 180, lon: 78.9 * Math.PI / 180 };
+
+    function drawGlobe() {
+        gc.clearRect(0, 0, 300, 300);
+        // Globe base
+        const grad = gc.createRadialGradient(cx-40, cy-40, 10, cx, cy, R);
+        grad.addColorStop(0, 'rgba(124,58,237,0.15)');
+        grad.addColorStop(1, 'rgba(5,11,24,0.8)');
+        gc.beginPath();
+        gc.arc(cx, cy, R, 0, Math.PI * 2);
+        gc.fillStyle = grad;
+        gc.fill();
+
+        // Draw dots
+        dots.forEach(d => {
+            const lon = d.lon + angle;
+            const x3 = R * Math.cos(d.lat) * Math.sin(lon);
+            const y3 = R * Math.sin(d.lat);
+            const z3 = R * Math.cos(d.lat) * Math.cos(lon);
+            if (z3 > 0) {
+                const sx = cx + x3; const sy = cy - y3;
+                const brightness = z3 / R;
+                gc.beginPath();
+                gc.arc(sx, sy, 1.2, 0, Math.PI * 2);
+                gc.fillStyle = `rgba(168,85,247,${brightness * 0.8})`;
+                gc.fill();
+            }
+        });
+
+        // Latitude lines
+        for (let lat = -60; lat <= 60; lat += 30) {
+            const latR = lat * Math.PI / 180;
+            gc.beginPath();
+            let first = true;
+            for (let lon = 0; lon <= 360; lon += 5) {
+                const lonR = lon * Math.PI / 180 + angle;
+                const x3 = R * Math.cos(latR) * Math.sin(lonR);
+                const y3 = R * Math.sin(latR);
+                const z3 = R * Math.cos(latR) * Math.cos(lonR);
+                if (z3 > 0) {
+                    const sx = cx + x3; const sy = cy - y3;
+                    first ? gc.moveTo(sx, sy) : gc.lineTo(sx, sy);
+                    first = false;
+                } else { first = true; }
+            }
+            gc.strokeStyle = 'rgba(6,182,212,0.12)';
+            gc.lineWidth = 0.5; gc.stroke();
+        }
+
+        // India marker
+        const iLon = india.lon + angle;
+        const ix = R * Math.cos(india.lat) * Math.sin(iLon);
+        const iy = R * Math.sin(india.lat);
+        const iz = R * Math.cos(india.lat) * Math.cos(iLon);
+        if (iz > 0) {
+            const sx = cx + ix; const sy = cy - iy;
+            gc.beginPath();
+            gc.arc(sx, sy, 5, 0, Math.PI * 2);
+            gc.fillStyle = '#10b981';
+            gc.fill();
+            gc.beginPath();
+            gc.arc(sx, sy, 9, 0, Math.PI * 2);
+            gc.strokeStyle = 'rgba(16,185,129,0.5)';
+            gc.lineWidth = 1.5; gc.stroke();
+        }
+
+        // Globe border glow
+        gc.beginPath();
+        gc.arc(cx, cy, R, 0, Math.PI * 2);
+        gc.strokeStyle = 'rgba(124,58,237,0.3)';
+        gc.lineWidth = 1.5; gc.stroke();
+
+        angle += 0.005;
+        requestAnimationFrame(drawGlobe);
+    }
+    drawGlobe();
+}
+
+// ===== ACCORDION TIMELINE =====
+document.querySelectorAll('.acc-item').forEach(item => {
+    item.querySelector('.acc-header').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    });
+});
+
 // ===== NEON SECTION TITLES =====
 document.querySelectorAll('.section-title').forEach(el => {
     el.setAttribute('data-text', el.textContent);
