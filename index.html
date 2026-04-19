@@ -682,24 +682,24 @@
                         <a href="mailto:adityagupta021103@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <form class="contact-form glass" id="contactForm">
+                <form class="contact-form glass" id="contactForm" action="https://formspree.io/f/mwvabzza" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="from_name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" placeholder="your@email.com" required>
+                            <input type="email" name="from_email" placeholder="your@email.com" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Subject</label>
-                        <input type="text" placeholder="Project Collaboration / Job Opportunity" required>
+                        <input type="text" name="subject" placeholder="Project Collaboration / Job Opportunity" required>
                     </div>
                     <div class="form-group">
                         <label>Message</label>
-                        <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+                        <textarea rows="5" name="message" placeholder="Tell me about your project..." required></textarea>
                     </div>
                     <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
                 </form>

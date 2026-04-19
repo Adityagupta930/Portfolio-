@@ -738,21 +738,36 @@ window.addEventListener('load', () => {
 });
 
 // Toast on contact form submit
-document.getElementById('contactForm').addEventListener('submit', e => {
+document.getElementById('contactForm').addEventListener('submit', async e => {
     e.preventDefault();
     const btn = e.target.querySelector('.btn-submit');
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
+
+    const data = new FormData(e.target);
+    try {
+        const res = await fetch('https://formspree.io/f/mwvabzza', {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            showToast('✅ Message sent! Aditya will reply soon.', 'success', 'fa-check-circle');
+            launchConfetti();
+            e.target.reset();
+        } else {
+            throw new Error();
+        }
+    } catch {
+        btn.innerHTML = '<i class="fas fa-times"></i> Failed!';
+        btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        showToast('❌ Something went wrong. Try again!', 'info', 'fa-exclamation-circle');
+    }
     setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-        showToast('✅ Message sent successfully!', 'success', 'fa-check-circle');
-        launchConfetti();
-        e.target.reset();
-        setTimeout(() => {
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-            btn.style.background = '';
-            btn.disabled = false;
-        }, 3000);
-    }, 2000);
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
+    }, 3000);
 });
