@@ -51,6 +51,32 @@ if (cards.length) {
     setInterval(() => goToSlide(testiIdx + 1 >= totalSlides ? 0 : testiIdx + 1), 4000);
 }
 
+// ===== CURSOR TRAIL =====
+const trailColors = ['#7c3aed','#a855f7','#06b6d4','#22d3ee','#10b981'];
+document.addEventListener('mousemove', e => {
+    const trail = document.createElement('div');
+    trail.className = 'cursor-trail';
+    trail.style.left = e.clientX + 'px';
+    trail.style.top = e.clientY + 'px';
+    trail.style.background = trailColors[Math.floor(Math.random() * trailColors.length)];
+    trail.style.boxShadow = `0 0 6px ${trail.style.background}`;
+    document.body.appendChild(trail);
+    setTimeout(() => trail.remove(), 600);
+});
+
+// ===== MAGNETIC BUTTONS =====
+document.querySelectorAll('.btn-primary-hero, .btn-ghost-hero, .btn-resume, .social-btn, .tab-btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0,0)';
+    });
+});
+
 // ===== TYPING SOUND =====
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let audioCtx;

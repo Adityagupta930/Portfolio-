@@ -26,6 +26,7 @@
     </div>
 
     <canvas id="particles"></canvas>
+    <div class="gradient-mesh"></div>
 
     <!-- Gradient Blobs -->
     <div class="blob blob-1"></div>
@@ -63,7 +64,7 @@
         <div class="hero-content">
             <div class="hero-tag glass"><span class="live-dot"></span> Open to Work — AI/ML Roles</div>
             <p class="hero-greeting">👋 Hello, World! I'm</p>
-            <h1>Aditya <span class="gradient-text">Gupta</span></h1>
+            <h1>Aditya <span class="gradient-text glitch" data-text="Gupta">Gupta</span></h1>
             <div class="typewriter-wrapper">
                 <span class="typewriter-prefix">I build </span>
                 <span class="typewriter" id="typewriter"></span><span class="cursor">|</span>
@@ -197,6 +198,31 @@
                 <p class="section-tag">// tech stack</p>
                 <h2 class="section-title">Skills & Tools</h2>
             </div>
+            <!-- Skill Orbit -->
+            <div class="orbit-section">
+                <div class="orbit-wrap">
+                    <div class="orbit-center">🧠</div>
+                    <div class="orbit-ring orbit-ring-1">
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(0deg) translateX(80px) rotate(0deg)">🐍<span class="orbit-label">Python</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(120deg) translateX(80px) rotate(-120deg)">⚡<span class="orbit-label">FastAPI</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(240deg) translateX(80px) rotate(-240deg)">🔗<span class="orbit-label">LangChain</span></div>
+                    </div>
+                    <div class="orbit-ring orbit-ring-2">
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(0deg) translateX(120px) rotate(0deg)">☁️<span class="orbit-label">AWS</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(90deg) translateX(120px) rotate(-90deg)">🤗<span class="orbit-label">HuggingFace</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(180deg) translateX(120px) rotate(-180deg)">🐳<span class="orbit-label">Docker</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(270deg) translateX(120px) rotate(-270deg)">🔍<span class="orbit-label">RAG</span></div>
+                    </div>
+                    <div class="orbit-ring orbit-ring-3">
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(0deg) translateX(160px) rotate(0deg)">🧬<span class="orbit-label">PyTorch</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(72deg) translateX(160px) rotate(-72deg)">📊<span class="orbit-label">Pandas</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(144deg) translateX(160px) rotate(-144deg)">🌐<span class="orbit-label">LangGraph</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(216deg) translateX(160px) rotate(-216deg)">🚀<span class="orbit-label">CrewAI</span></div>
+                        <div class="orbit-item" style="transform:translate(-50%,-50%) rotate(288deg) translateX(160px) rotate(-288deg)">📦<span class="orbit-label">MLflow</span></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="skills-tabs">
                 <button class="tab-btn active" data-tab="ai">🤖 AI / ML</button>
                 <button class="tab-btn" data-tab="frameworks">⚙️ Frameworks</button>
