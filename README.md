@@ -4,6 +4,8 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript.
 
 ## Features
 
+
+
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
 - **Modern UI/UX**: Clean, professional design with smooth animations
 - **Interactive Elements**: Smooth scrolling, hover effects, and form validation
