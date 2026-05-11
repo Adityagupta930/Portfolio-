@@ -1934,3 +1934,16 @@ body::after {
 @media (max-width: 768px) {
     .testi-card { min-width: 100%; }
 }
+
+.timeline-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
