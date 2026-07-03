@@ -1,3 +1,167 @@
+// ===== GALAXY STARS =====
+const galaxyCanvas = document.getElementById('galaxyCanvas');
+const gCtx = galaxyCanvas.getContext('2d');
+galaxyCanvas.width = window.innerWidth;
+galaxyCanvas.height = window.innerHeight;
+window.addEventListener('resize', () => { galaxyCanvas.width = window.innerWidth; galaxyCanvas.height = window.innerHeight; });
+
+const stars = Array.from({ length: 200 }, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    r: Math.random() * 1.5 + 0.3,
+    o: Math.random() * 0.7 + 0.1,
+    speed: Math.random() * 0.3 + 0.05,
+    twinkle: Math.random() * Math.PI * 2
+}));
+
+const shootingStars = [];
+function spawnShootingStar() {
+    shootingStars.push({
+        x: Math.random() * window.innerWidth * 0.7,
+        y: Math.random() * window.innerHeight * 0.4,
+        len: Math.random() * 120 + 60,
+        speed: Math.random() * 8 + 6,
+        opacity: 1,
+        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.3
+    });
+}
+setInterval(spawnShootingStar, 2500);
+
+function drawGalaxy() {
+    gCtx.clearRect(0, 0, galaxyCanvas.width, galaxyCanvas.height);
+    stars.forEach(s => {
+        s.twinkle += 0.02;
+        const opacity = s.o * (0.6 + 0.4 * Math.sin(s.twinkle));
+        gCtx.beginPath();
+        gCtx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        gCtx.fillStyle = `rgba(255,255,255,${opacity})`;
+        gCtx.fill();
+        s.y -= s.speed * 0.1;
+        if (s.y < 0) { s.y = galaxyCanvas.height; s.x = Math.random() * galaxyCanvas.width; }
+    });
+    for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const ss = shootingStars[i];
+        const grad = gCtx.createLinearGradient(ss.x, ss.y, ss.x - Math.cos(ss.angle) * ss.len, ss.y - Math.sin(ss.angle) * ss.len);
+        grad.addColorStop(0, `rgba(255,255,255,${ss.opacity})`);
+        grad.addColorStop(0.3, `rgba(168,85,247,${ss.opacity * 0.6})`);
+        grad.addColorStop(1, 'transparent');
+        gCtx.beginPath();
+        gCtx.strokeStyle = grad;
+        gCtx.lineWidth = 1.5;
+        gCtx.moveTo(ss.x, ss.y);
+        gCtx.lineTo(ss.x - Math.cos(ss.angle) * ss.len, ss.y - Math.sin(ss.angle) * ss.len);
+        gCtx.stroke();
+        ss.x += Math.cos(ss.angle) * ss.speed;
+        ss.y += Math.sin(ss.angle) * ss.speed;
+        ss.opacity -= 0.015;
+        if (ss.opacity <= 0) shootingStars.splice(i, 1);
+    }
+    requestAnimationFrame(drawGalaxy);
+}
+drawGalaxy();
+
+// ===== NEURAL NETWORK BACKGROUND =====
+const neuralCanvas = document.getElementById('neuralCanvas');
+const nCtx = neuralCanvas.getContext('2d');
+neuralCanvas.width = window.innerWidth;
+neuralCanvas.height = window.innerHeight;
+window.addEventListener('resize', () => { neuralCanvas.width = window.innerWidth; neuralCanvas.height = window.innerHeight; });
+
+const nodes = Array.from({ length: 40 }, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.5,
+    r: Math.random() * 3 + 2,
+    pulse: Math.random() * Math.PI * 2
+}));
+
+function drawNeural() {
+    nCtx.clearRect(0, 0, neuralCanvas.width, neuralCanvas.height);
+    nodes.forEach(n => {
+        n.x += n.vx; n.y += n.vy;
+        n.pulse += 0.03;
+        if (n.x < 0 || n.x > neuralCanvas.width) n.vx *= -1;
+        if (n.y < 0 || n.y > neuralCanvas.height) n.vy *= -1;
+    });
+    for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 180) {
+                const alpha = (1 - dist / 180) * 0.5;
+                const grad = nCtx.createLinearGradient(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
+                grad.addColorStop(0, `rgba(124,58,237,${alpha})`);
+                grad.addColorStop(1, `rgba(6,182,212,${alpha})`);
+                nCtx.beginPath();
+                nCtx.strokeStyle = grad;
+                nCtx.lineWidth = 0.8;
+                nCtx.moveTo(nodes[i].x, nodes[i].y);
+                nCtx.lineTo(nodes[j].x, nodes[j].y);
+                nCtx.stroke();
+            }
+        }
+    }
+    nodes.forEach(n => {
+        const glow = nCtx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 4);
+        glow.addColorStop(0, `rgba(168,85,247,${0.6 + 0.4 * Math.sin(n.pulse)})`);
+        glow.addColorStop(1, 'transparent');
+        nCtx.beginPath();
+        nCtx.arc(n.x, n.y, n.r * 4, 0, Math.PI * 2);
+        nCtx.fillStyle = glow;
+        nCtx.fill();
+        nCtx.beginPath();
+        nCtx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        nCtx.fillStyle = `rgba(168,85,247,${0.8 + 0.2 * Math.sin(n.pulse)})`;
+        nCtx.fill();
+    });
+    requestAnimationFrame(drawNeural);
+}
+drawNeural();
+
+// ===== GEOMETRIC GRID =====
+const gridCanvas = document.getElementById('gridCanvas');
+const grCtx = gridCanvas.getContext('2d');
+gridCanvas.width = window.innerWidth;
+gridCanvas.height = window.innerHeight * 0.4;
+window.addEventListener('resize', () => { gridCanvas.width = window.innerWidth; gridCanvas.height = window.innerHeight * 0.4; });
+
+let gridOffset = 0;
+function drawGrid() {
+    grCtx.clearRect(0, 0, gridCanvas.width, gridCanvas.height);
+    const W = gridCanvas.width, H = gridCanvas.height;
+    const vp = { x: W / 2, y: 0 };
+    const cols = 20, rows = 12;
+    const cellW = W / cols;
+    gridOffset = (gridOffset + 0.3) % cellW;
+
+    grCtx.strokeStyle = 'rgba(124,58,237,0.6)';
+    grCtx.lineWidth = 0.6;
+
+    for (let i = -1; i <= cols + 1; i++) {
+        const x = i * cellW - gridOffset;
+        grCtx.beginPath();
+        grCtx.moveTo(vp.x + (x - W / 2) * 0.01, vp.y);
+        grCtx.lineTo(x, H);
+        grCtx.stroke();
+    }
+    for (let j = 1; j <= rows; j++) {
+        const y = (j / rows) * H;
+        const perspective = j / rows;
+        const xStart = W / 2 - (W / 2) * perspective;
+        const xEnd = W / 2 + (W / 2) * perspective;
+        const alpha = perspective * 0.8;
+        grCtx.strokeStyle = `rgba(6,182,212,${alpha})`;
+        grCtx.beginPath();
+        grCtx.moveTo(xStart, y);
+        grCtx.lineTo(xEnd, y);
+        grCtx.stroke();
+    }
+    requestAnimationFrame(drawGrid);
+}
+drawGrid();
+
 // ===== PAGE LOADER =====
 const loaderTexts = ['Initializing AI...', 'Loading LLMs...', 'Connecting RAG...', 'Building Portfolio...', 'Almost Ready...'];
 const loaderBar = document.getElementById('loaderBar');

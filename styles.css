@@ -1349,6 +1349,77 @@ body.light .code-body { background: #1e1e3f; border-radius: 0 0 16px 16px; }
     to { opacity: 0; transform: translateX(-20px); }
 }
 
+/* ===== GALAXY STARS ===== */
+#galaxyCanvas {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
+    opacity: 0.6;
+}
+
+/* ===== NEURAL NETWORK CANVAS ===== */
+#neuralCanvas {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
+    opacity: 0.18;
+}
+
+/* ===== GEOMETRIC GRID ===== */
+#gridCanvas {
+    position: fixed; bottom: 0; left: 0;
+    width: 100%; height: 40%;
+    z-index: 0; pointer-events: none;
+    opacity: 0.12;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+}
+
+/* ===== AURORA WAVES ===== */
+.aurora-bg {
+    position: fixed; bottom: 0; left: 0;
+    width: 100%; height: 320px;
+    z-index: 0; pointer-events: none;
+    overflow: hidden;
+    opacity: 0.18;
+}
+.aurora-wave {
+    position: absolute; bottom: 0; left: -50%;
+    width: 200%; height: 100%;
+    border-radius: 40%;
+}
+.aurora-wave:nth-child(1) {
+    background: linear-gradient(180deg, transparent 60%, rgba(124,58,237,0.5) 100%);
+    animation: auroraWave 8s ease-in-out infinite;
+}
+.aurora-wave:nth-child(2) {
+    background: linear-gradient(180deg, transparent 60%, rgba(6,182,212,0.4) 100%);
+    animation: auroraWave 12s ease-in-out infinite reverse;
+    animation-delay: -3s;
+}
+.aurora-wave:nth-child(3) {
+    background: linear-gradient(180deg, transparent 60%, rgba(16,185,129,0.3) 100%);
+    animation: auroraWave 10s ease-in-out infinite;
+    animation-delay: -6s;
+}
+@keyframes auroraWave {
+    0%,100% { transform: rotate(-3deg) translateY(10px); }
+    50% { transform: rotate(3deg) translateY(-10px); }
+}
+
+/* ===== SCANLINES ===== */
+.scanlines {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+    );
+    opacity: 0.5;
+}
+
 /* ===== NOISE TEXTURE OVERLAY ===== */
 body::after {
     content: '';
